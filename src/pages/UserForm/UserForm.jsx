@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Form } from 'react-bootstrap';
 
 export class UserForm extends Component {
     constructor(props) {
@@ -33,26 +34,26 @@ export class UserForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>Age: 
-                    <select value={this.state.age} onChange={this.handleChangeAge}>
+            <Form onSubmit={this.handleSubmit}>
+                <Form.Group controlId="age">
+                    <Form.Label>Age:</Form.Label>
+                    <Form.Control as="select" value={this.state.age} onChange={this.handleChangeAge}>
                         <option value="0">0-17</option>
-                        <option value="1">17-24</option>
+                        <option value="1">18-24</option>
                         <option value="2">25-50</option>
                         <option value="3">50-100</option>
-                    </select>
-                </label>
-
-                <label>Gender: 
-                    <select value={this.state.gender} onChange={this.handleChangeGender}>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="gender">
+                    <Form.Label>Gender:</Form.Label>
+                    <Form.Control as="select" value={this.state.gender} onChange={this.handleChangeGender}>
                         <option value="0">Male</option>
                         <option value="1">Female</option>
                         <option value="2">Others</option>
-                    </select>
-                </label>
-
-                <input type="submit" value="Next"/>
-            </form>
+                    </Form.Control>
+                </Form.Group>
+                <Button className="float-lg-right" as="input" type="submit" value="Next" />
+            </Form>
         )
     }
 }

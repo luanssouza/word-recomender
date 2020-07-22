@@ -1,29 +1,31 @@
 import React, { Component } from 'react'
-import UserForm from '../UserForm/UserForm';
-import Movies from '../Movies/Movies'
-import ExplanationRate from '../ExplanationRate/ExplanationRate';
-import ExplanationCompare from '../ExplanationCompare/ExplanationCompare';
-
 import { Switch, Route } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
-export class Home extends Component {
+import UserForm from '../pages/UserForm/UserForm';
+import Movies from '../pages/Movies/Movies';
+import ExplanationRate from '../pages/ExplanationRate/ExplanationRate';
+import ExplanationCompare from '../pages/ExplanationCompare/ExplanationCompare';
+
+export class Content extends Component {
     constructor(props) {
         super(props);
 
         this.state = { isUserForm: false };
     }
+    
     render() {
         return (
-            <div>
+            <Container>
                 <Switch>
                     <Route exact path="/" component={UserForm}/>
                     <Route exact path="/movies" component={Movies}/>
                     <Route exact path="/explanationRate" component={ExplanationRate}/>
                     <Route exact path="/explanationCompare" component={ExplanationCompare}/>
                 </Switch>
-            </div>
+            </Container>
         )
     }
 }
 
-export default Home
+export default Content
