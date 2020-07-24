@@ -5,9 +5,9 @@ import { Navbar } from "react-bootstrap";
 const Header = () => {
   return (
     <header>
-        <Navbar class="navbar">
+        <Navbar className="navbar">
           <Container>
-            <Navbar class="navbar-brand" href="/">Word Recommender</Navbar>
+            <Navbar className="navbar-brand" id="brand" href="/">Word Recommender</Navbar>
           </Container>
         </Navbar>
     </header>

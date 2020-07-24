@@ -1,6 +1,15 @@
 .search{
-    margin-top: 1rem;
     border-radius: 15px;
     height: 40px;
+    margin-left: auto;
     text-align: center;
+}
+
+.btn-submit{
+    margin-left: 1rem;
+    margin-right: auto;
+}
+
+#search-input{
+    width: 50%;
 }
