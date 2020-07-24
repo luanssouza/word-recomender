@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import SearchBar from '../../SearchBar';
 
 export class Movies extends Component {
     constructor(props) {
@@ -23,23 +24,7 @@ export class Movies extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}> 
-                    <label>
-                        Title
-                        <input value={this.state.search} onChange={this.handleChangeSearch} type="text" />
-                    </label>
-                    <input type="submit" value="Search"/>
-                </form>
-                <div>
-                    {
-                        this.state.moviesList.map((movie, index) => (
-                            <div>
-                                <div>{ movie.title }</div>
-                                <div>{ movie.image }</div>
-                            </div>
-                        ))
-                    }
-                </div>
+                <SearchBar/>
             </div>
         )
     }

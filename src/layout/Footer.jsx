@@ -3,11 +3,12 @@ import { Container } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <footer className="bg-light fixed-bottom">
+    <footer class="footer fixed-bottom p-3">
 		<Container>
-			<p>
-				<span className="text-muted">© 2020 Copyright</span>
-			</p>
+			<div class="footer-content">
+				<span> © 2020 Copyright</span>
+				<a href="https://icmc.usp.br/">Insituto de Ciências Matemáticas e de Computação - ICMC</a>
+			</div>
 		</Container>
     </footer>
   );
