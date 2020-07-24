@@ -1,30 +1,27 @@
 import React, { Component } from 'react'
+import Omdb from '../../services/Omdb'
 import SearchBar from '../../components/SearchBar';
 
 export class Movies extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = { moviesList: [], search: "" };
+    state = {films: []}
 
-        this.handleChangeSearch = this.handleChangeSearch.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    onSearchSubmit = async (film) => {
+        const response = await Omdb.get( '', {
+            params: {
+                s: film 
+            }
+        });
 
-    handleChangeSearch(event) { 
-        this.setState({ search: event.target.value });
-    }
-
-    handleSubmit(event) {
-        event.preventDefault();
-
-        this.props.history.push('/explanationRate');
+        console.log(response.data.Search)
+        this.setState({films: response.data.Search})
     }
 
     render() {
         return (
             <div>
-                <SearchBar/>
+                <SearchBar onSubmit={this.onSearchSubmit}/>
+                Found: {this.state.films.length} films
             </div>
         )
     }
