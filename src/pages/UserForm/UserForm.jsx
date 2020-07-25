@@ -5,10 +5,13 @@ export class UserForm extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { movies: [], age: 0, gender: 0 };
+        this.state = { age: 0, gender: 0, education: 0, recsys: 0 };
 
         this.handleChangeAge = this.handleChangeAge.bind(this);
         this.handleChangeGender = this.handleChangeGender.bind(this);
+        this.handleChangeEducation = this.handleChangeEducation.bind(this);
+        this.handleChangeRecsys = this.handleChangeRecsys.bind(this);
+
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -20,10 +23,12 @@ export class UserForm extends Component {
         this.setState({ gender: event.target.value });  
     }
 
-    handleSearch(event) {
-        event.preventDefault();
+    handleChangeEducation(event) {
+        this.setState({ education: event.target.value });  
+    }
 
-        alert("Você pesquisou algo!");
+    handleChangeRecsys(event) {
+        this.setState({ recsys: event.target.value });  
     }
 
     handleSubmit(event) {
@@ -50,6 +55,24 @@ export class UserForm extends Component {
                         <option value="0">Male</option>
                         <option value="1">Female</option>
                         <option value="2">Others</option>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="education">
+                    <Form.Label>Education:</Form.Label>
+                    <Form.Control as="select" value={this.state.education} onChange={this.handleChangeEducation}>
+                        <option value="0">High School</option>
+                        <option value="1">bachelor's degree</option>
+                        <option value="2">Master's degree</option>
+                        <option value="3">PhD</option>
+                        <option value="4">Others</option>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="recsys">
+                    <Form.Label>Have ever you use recommender systems?</Form.Label>
+                    <Form.Control as="select" value={this.state.recsys} onChange={this.handleChangeRecsys}>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                        <option value="2">I don't know</option>
                     </Form.Control>
                 </Form.Group>
                 <Button className="float-lg-right" as="input" type="submit" value="Next" />
