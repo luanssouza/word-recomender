@@ -58,3 +58,10 @@
     height: 1.5rem;
     align-self: center;
 }
+
+.error{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 5rem;
+    color: #505050;
+}
