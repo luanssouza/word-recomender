@@ -18,7 +18,7 @@ class SearchBar extends React.Component {
                     <input id="search-input"
                         className="form-control search" 
                         type="text" 
-                        placeholder="Nome do filme em inglês"
+                        placeholder="Search the name of a movie from 2011 to 2016"
                         value={this.state.film} 
                         onChange={e => this.setState({film: e.target.value})} />
 
