@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Omdb from '../../services/Omdb'
 import SearchBar from '../../components/SearchBar';
+import ImageList from '../../components/ImageList';
 
 export class Movies extends Component {
 
@@ -21,7 +22,7 @@ export class Movies extends Component {
         return (
             <div>
                 <SearchBar onSubmit={this.onSearchSubmit}/>
-                Found: {this.state.films.length} films
+                <ImageList films={this.state.films}/>
             </div>
         )
     }
