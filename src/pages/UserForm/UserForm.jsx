@@ -61,14 +61,14 @@ export class UserForm extends Component {
                     <Form.Label>Education:</Form.Label>
                     <Form.Control as="select" value={this.state.education} onChange={this.handleChangeEducation}>
                         <option value="0">High School</option>
-                        <option value="1">bachelor's degree</option>
+                        <option value="1">Bachelor's degree</option>
                         <option value="2">Master's degree</option>
                         <option value="3">PhD</option>
                         <option value="4">Others</option>
                     </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="recsys">
-                    <Form.Label>Have ever you use recommender systems?</Form.Label>
+                    <Form.Label>Have ever you used another recommender systems? (Such as Amazon and Netflix)</Form.Label>
                     <Form.Control as="select" value={this.state.recsys} onChange={this.handleChangeRecsys}>
                         <option value="0">No</option>
                         <option value="1">Yes</option>
