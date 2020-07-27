@@ -110,3 +110,17 @@ a:active {
   background-color: #59366F;
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.75);
 }
+
+#scrollup-btn {
+  position: fixed; 
+  bottom: 6rem; 
+  right: 50px; 
+  z-index: 99; 
+  padding: 15px; 
+  color: #FFFFFF;
+  font-size: 18px; 
+  border: 1px solid #FFFFFF;
+  background-color: #350057;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+

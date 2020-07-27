@@ -1,0 +1,47 @@
+#m-title{
+    color: #350057;
+    font-weight: bold;
+}
+
+.pro-film-poster{
+    width: 50%;
+    height: 100%;
+}
+
+.pro-film-title{
+    color: #350057;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.pro-film-year{
+    color: #350057;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row{
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem;
+    margin: auto;
+}
+
+.modal-body{
+    padding: 0rem;
+}
+
+.modal-footer{
+    border: none;
+}
+
+.trash-icon{
+    color: #350057;
+    height: 1.25rem;
+}
