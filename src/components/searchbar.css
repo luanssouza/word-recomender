@@ -13,3 +13,9 @@
 #search-input{
     width: 50%;
 }
+
+.description{
+    text-align: center;
+    font-size: 1.25rem;
+    color: #350057;
+}

@@ -3,10 +3,11 @@ import Omdb from '../../services/Omdb'
 import SearchBar from '../../components/SearchBar';
 import ImageList from '../../components/ImageList';
 import ProfileList from '../../components/ProfileList';
+import Next from '../../components/Next';
 
 export class Movies extends Component {
 
-    state = {films: [], profile_films: []};
+    state = {films: [], profile_films: [], next: true};
 
     constructor(props){
         super(props);
@@ -33,7 +34,7 @@ export class Movies extends Component {
                 return i;
             }
         }
-        
+
         return -1;
     }
 
@@ -54,6 +55,12 @@ export class Movies extends Component {
             this.setState({
                 profile_films:[...this.state.profile_films, new_film]
             });
+
+            if(this.state.profile_films.length + 1 >= 10){
+                this.setState({
+                    next: false
+                });
+            }
         }
     }
 
@@ -71,14 +78,20 @@ export class Movies extends Component {
                 profile_films: copy
         });
 
+        if(this.state.profile_films.length - 1 < 10){
+            this.setState({
+                next: true
+            });
+        }
     }
 
     render() {
         return (
             <div>
-                <ProfileList pro_list={this.state.profile_films} removeMovie={this.removeMovie}></ProfileList>
+                <ProfileList pro_list={this.state.profile_films} nfavs={this.state.profile_films.length} removeMovie={this.removeMovie}></ProfileList>
                 <SearchBar onSubmit={this.onSearchSubmit}/>
                 <ImageList addMovie={this.addMovie} films={this.state.films}/>
+                <Next next={this.state.next}></Next>
             </div>
         )
     }
