@@ -11,7 +11,8 @@ export class Movies extends Component {
     constructor(props){
         super(props);
         this.findFilmByImdbId = this.findFilmByImdbId.bind(this);
-        this.handler = this.handler.bind(this);
+        this.addMovie = this.addMovie.bind(this);
+        this.removeMovie = this.removeMovie.bind(this);
     }
 
     onSearchSubmit = async (film) => {
@@ -29,11 +30,11 @@ export class Movies extends Component {
         for(var i = 0; i < this.state.profile_films.length; i++){
             const f = this.state.profile_films[i];
             if(f.imdbID === imbd_id){
-                return true;
+                return i;
             }
         }
         
-        return false;
+        return -1;
     }
 
     /**
@@ -41,8 +42,9 @@ export class Movies extends Component {
      * 
      * @param {*} Title to be addded to the profile_itens
      */
-    handler = (imbd_id, url, title, year) => {
-        if(!this.findFilmByImdbId(imbd_id)){
+    addMovie = (imbd_id, url, title, year) => {
+        console.log("addMovie");
+        if(this.findFilmByImdbId(imbd_id) < 0){
             var new_film = {
                 imdbID: imbd_id,
                 Poster: url,
@@ -55,12 +57,28 @@ export class Movies extends Component {
         }
     }
 
+    /**
+     * Remove a movie from the profile itens, in case it was not yet added
+     * 
+     * @param {*} Title to be addded to the profile_itens
+     */
+    removeMovie = (imbd_id) => {
+        console.log("removeMovie");
+        var index = this.findFilmByImdbId(imbd_id);
+        var copy = this.state.profile_films.slice();
+        copy.splice(index, 1);
+        this.setState({
+                profile_films: copy
+        });
+
+    }
+
     render() {
         return (
             <div>
-                <ProfileList pro_list={this.state.profile_films}></ProfileList>
+                <ProfileList pro_list={this.state.profile_films} removeMovie={this.removeMovie}></ProfileList>
                 <SearchBar onSubmit={this.onSearchSubmit}/>
-                <ImageList handler = {this.handler} films={this.state.films}/>
+                <ImageList addMovie={this.addMovie} films={this.state.films}/>
             </div>
         )
     }
