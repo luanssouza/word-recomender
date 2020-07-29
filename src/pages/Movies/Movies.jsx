@@ -44,7 +44,7 @@ export class Movies extends Component {
      * @param {*} Title to be addded to the profile_itens
      */
     addMovie = (imbd_id, url, title, year) => {
-        console.log("addMovie");
+        // console.log("addMovie");
         if(this.findFilmByImdbId(imbd_id) < 0){
             var new_film = {
                 imdbID: imbd_id,
@@ -70,7 +70,7 @@ export class Movies extends Component {
      * @param {*} Title to be addded to the profile_itens
      */
     removeMovie = (imbd_id) => {
-        console.log("removeMovie");
+        // console.log("removeMovie");
         var index = this.findFilmByImdbId(imbd_id);
         var copy = this.state.profile_films.slice();
         copy.splice(index, 1);

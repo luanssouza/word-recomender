@@ -91,10 +91,10 @@ export class ExplanationRate extends Component {
                     this.state.movies.map( (movie, index) => (
                         <Jumbotron key={index}>
                             <Row className="mb-4">
-                                <Col xs={12} md={3} className="text-center">
+                                <Col xs={12} md={4} lg={3} className="text-center">
                                     <Image src={testeImg} className="m-2"/>
                                 </Col>
-                                <Col xs={12} md={9}>
+                                <Col xs={12} md={8} lg={9} >
                                     <h1><b>{ movie.title }</b></h1>
                                     <p> { movie.justify } </p>
                                 </Col>
