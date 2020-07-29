@@ -5,33 +5,30 @@ export class UserForm extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { age: 0, gender: 0, education: 0, recsys: 0 };
-
-        this.handleChangeAge = this.handleChangeAge.bind(this);
-        this.handleChangeGender = this.handleChangeGender.bind(this);
-        this.handleChangeEducation = this.handleChangeEducation.bind(this);
-        this.handleChangeRecsys = this.handleChangeRecsys.bind(this);
-
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = { age: 0, gender: 0, education: 0, recsys: 0, accept: false };
     }
 
-    handleChangeAge(event) {
+    handleChangeAge = (event) => {
         this.setState({ age: event.target.value });  
     }
 
-    handleChangeGender(event) {
+    handleChangeGender = (event) => {
         this.setState({ gender: event.target.value });  
     }
 
-    handleChangeEducation(event) {
+    handleChangeEducation = (event) => {
         this.setState({ education: event.target.value });  
     }
 
-    handleChangeRecsys(event) {
+    handleChangeRecsys = (event) => {
         this.setState({ recsys: event.target.value });  
     }
 
-    handleSubmit(event) {
+    handleChangeAccept = () => {
+        this.setState({ accept: !this.state.accept });  
+    }
+
+    handleSubmit = (event) => {
         event.preventDefault();
 
         this.props.history.push('/movies');
@@ -75,7 +72,10 @@ export class UserForm extends Component {
                         <option value="2">I don't know</option>
                     </Form.Control>
                 </Form.Group>
-                <Button className="float-lg-right" as="input" type="submit" value="Next" />
+                <Form.Group controlId="Accept">
+                    <Form.Check type="checkbox" label="I accept the use of the information provided in this and other surveys" value={this.state.accept} onChange={this.handleChangeAccept} />
+                </Form.Group>
+                <Button className="float-lg-right" as="input" type="submit" value="Next" disabled={!this.state.accept} />
             </Form>
         )
     }

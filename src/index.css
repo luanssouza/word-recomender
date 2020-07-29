@@ -111,6 +111,12 @@ a:active {
   box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.75);
 }
 
+.btn-primary:disabled {
+  border: 0;
+  background-color: #59366F;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.75);
+}
+
 #scrollup-btn {
   width: 7rem;
   position: fixed; 
