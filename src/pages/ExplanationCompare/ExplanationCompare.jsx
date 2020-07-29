@@ -12,11 +12,11 @@ export class ExplanationCompare extends Component {
                     justifyA: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.", 
                     justifyB: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.", 
                     title: "Images (1972)",
-                    rec: 0, 
-                    qualiA: 0, 
-                    qualiB: 0, 
-                    wordsA: 0, 
-                    wordsB: 0,
+                    rec: 5, 
+                    qualiA: 5, 
+                    qualiB: 5, 
+                    wordsA: 5, 
+                    wordsB: 5,
                     recComments: "",
                     jusComments: "", 
                 },
@@ -24,11 +24,11 @@ export class ExplanationCompare extends Component {
                     justifyA: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.", 
                     justifyB: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.", 
                     title: "Images (1972)",
-                    rec: 0, 
-                    qualiA: 0, 
-                    qualiB: 0, 
-                    wordsA: 0, 
-                    wordsB: 0,
+                    rec: 5, 
+                    qualiA: 5, 
+                    qualiB: 5, 
+                    wordsA: 5, 
+                    wordsB: 5,
                     recComments: "",
                     jusComments: "", 
                 },
@@ -106,25 +106,25 @@ export class ExplanationCompare extends Component {
                             <Row>
                                 <Col xs={12} md={6}>
                                     <Form.Group controlId="rec">
-                                        <Form.Label>Recommendation quality:</Form.Label>
+                                        <Form.Label>Recommendation quality: <b>{movie.rec}</b></Form.Label>
                                         <Form.Control type="range"  min="0" max="10" value={movie.rec} onChange={ (e)=> this.handleChangeRec(e, index)} />
                                     </Form.Group>
                                     <Form.Group controlId="qualiA">
-                                        <Form.Label>Quality of justification A:</Form.Label>
+                                        <Form.Label>Quality of justification A: <b>{movie.qualiA}</b></Form.Label>
                                         <Form.Control type="range"  min="0" max="10" value={movie.qualiA} onChange={ (e)=> this.handleChangeQualiA(e, index)} />
                                     </Form.Group>
 
                                     <Form.Group controlId="qualiB">
-                                        <Form.Label>Quality of justification B:</Form.Label>
+                                        <Form.Label>Quality of justification B: <b>{movie.qualiB}</b></Form.Label>
                                         <Form.Control type="range"  min="0" max="10" value={movie.qualiB} onChange={ (e)=> this.handleChangeQualiB(e, index)} />
                                     </Form.Group>
 
                                     <Form.Group controlId="wordsA">
-                                        <Form.Label>Quality of the words of justification A:</Form.Label>
+                                        <Form.Label>Quality of the words of justification A: <b>{movie.wordsA}</b></Form.Label>
                                         <Form.Control type="range"  min="0" max="10" value={movie.wordsA} onChange={ (e)=> this.handleChangeWordsA(e, index)} />
                                     </Form.Group>
                                     <Form.Group controlId="wordsB">
-                                        <Form.Label>Quality of the words of justification B:</Form.Label>
+                                        <Form.Label>Quality of the words of justification B: <b>{movie.wordsB}</b></Form.Label>
                                         <Form.Control type="range"  min="0" max="10" value={movie.wordsB} onChange={ (e)=> this.handleChangeWordsB(e, index)} />
                                     </Form.Group>
                                 </Col>

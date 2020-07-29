@@ -11,27 +11,27 @@ export class ExplanationRate extends Component {
                 { 
                     title: "Images (1972)", 
                     justify: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.",
-                    recommendation: 0, 
-                    transparency: 0, 
-                    surprise: 0,
+                    recommendation: 5, 
+                    transparency: 5, 
+                    surprise: 5,
                     recComments: "",
                     jusComments: "", 
                 },
                 { 
                     title: "Images (1972)", 
                     justify: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.",
-                    recommendation: 0, 
-                    transparency: 0, 
-                    surprise: 0,
+                    recommendation: 5, 
+                    transparency: 5, 
+                    surprise: 5,
                     recComments: "",
                     jusComments: "", 
                 },
                 { 
                     title: "Images (1972)", 
                     justify: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.",
-                    recommendation: 0, 
-                    transparency: 0, 
-                    surprise: 0,
+                    recommendation: 5, 
+                    transparency: 5, 
+                    surprise: 5,
                     recComments: "",
                     jusComments: "", 
                 },
@@ -102,17 +102,17 @@ export class ExplanationRate extends Component {
                             <Row>
                                 <Col xs={12} md={6}>
                                     <Form.Group controlId="recommendation">
-                                        <Form.Label>Recommendation quality:</Form.Label>
-                                        <Form.Control type="range"  min="0" max="10" value={movie.recommendation} onChange={ (e)=> this.handleChangeRecommendation(e, index)} />
+                                        <Form.Label>Recommendation quality: <b>{movie.recommendation}</b> </Form.Label>
+                                        <Form.Control type="range"  min="1" max="10" step="1" value={movie.recommendation} onChange={ (e)=> this.handleChangeRecommendation(e, index)} />
                                     </Form.Group>
                                     <Form.Group controlId="transparency">
-                                        <Form.Label>Transparency:</Form.Label>
-                                        <Form.Control type="range"  min="0" max="10" value={movie.transparency} onChange={ (e)=> this.handleChangeTransparency(e, index)} />
+                                        <Form.Label>Transparency: <b>{movie.transparency}</b></Form.Label>
+                                        <Form.Control type="range"  min="1" max="10" step="1" value={movie.transparency} onChange={ (e)=> this.handleChangeTransparency(e, index)} />
                                     </Form.Group>
 
                                     <Form.Group controlId="surprise">
-                                        <Form.Label>Surprise:</Form.Label>
-                                        <Form.Control type="range"  min="0" max="10" value={movie.surprise} onChange={ (e)=> this.handleChangeSurprise(e, index)} />
+                                        <Form.Label>Surprise: <b>{movie.surprise}</b></Form.Label>
+                                        <Form.Control type="range"  min="1" max="10" step="1" value={movie.surprise} onChange={ (e)=> this.handleChangeSurprise(e, index)} />
                                     </Form.Group>
                                 </Col>
                                 <Col xs={12} md={6}>
