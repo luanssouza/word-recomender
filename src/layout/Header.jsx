@@ -8,6 +8,7 @@ const Header = () => {
         <Navbar className="navbar" variant="dark">
           <Container>
             <Navbar.Brand href="/">Word Recommender</Navbar.Brand>
+            <img src="/icmc.png" alt="icmc" width="40" />
           </Container>
         </Navbar>
     </header>
