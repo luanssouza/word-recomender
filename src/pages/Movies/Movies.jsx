@@ -23,6 +23,9 @@ export class Movies extends Component {
             }
         });
 
+        if (response.data.Search)
+            response.data.Search.forEach( f => this.state.profile_films.forEach( p => f.imdbID === p.imdbID ? f.like = true : null ));
+
         // console.log(response.data.Search)
         this.setState({films: response.data.Search})
     }
@@ -43,7 +46,7 @@ export class Movies extends Component {
      * 
      * @param {*} Title to be addded to the profile_itens
      */
-    addMovie = (imbd_id, url, title, year) => {
+    addMovie = (imbd_id, url, title, year, index) => {
         // console.log("addMovie");
         if(this.findFilmByImdbId(imbd_id) < 0){
             var new_film = {
@@ -61,6 +64,10 @@ export class Movies extends Component {
                     next: false
                 });
             }
+
+            let aux = this.state.films;
+            aux[index].like = true;
+            this.setState({films: aux})
         }
     }
 
