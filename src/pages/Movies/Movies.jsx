@@ -81,8 +81,13 @@ export class Movies extends Component {
         var index = this.findFilmByImdbId(imbd_id);
         var copy = this.state.profile_films.slice();
         copy.splice(index, 1);
+
+        let aux = this.state.films;
+        aux.forEach( f => f.imdbID === imbd_id ? f.like = false : null );
+
         this.setState({
-                profile_films: copy
+                profile_films: copy,
+                films: aux
         });
 
         if(this.state.profile_films.length - 1 < 10){
