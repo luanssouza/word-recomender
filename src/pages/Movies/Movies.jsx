@@ -59,7 +59,7 @@ export class Movies extends Component {
                 profile_films:[...this.state.profile_films, new_film]
             });
 
-            if(this.state.profile_films.length + 1 >= 10){
+            if(this.state.profile_films.length + 1 >= 5){
                 this.setState({
                     next: false
                 });
@@ -90,7 +90,7 @@ export class Movies extends Component {
                 films: aux
         });
 
-        if(this.state.profile_films.length - 1 < 10){
+        if(this.state.profile_films.length - 1 < 5){
             this.setState({
                 next: true
             });

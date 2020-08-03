@@ -15,7 +15,7 @@ class SearchBar extends React.Component {
     render(){
         return  (
             <div>
-                <h1 className="description"> To continue, please like at least 10 films that you have enjoyed from 2011 to 2016 </h1>
+                <h1 className="description"> To continue, please like at least 5 films that you have enjoyed from 2000 to 2016 </h1>
                 <form onSubmit={this.onFormSubmit} className="form-inline">
                     <input id="search-input"
                         className="form-control search" 

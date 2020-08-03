@@ -36,7 +36,7 @@ const ImageList = (props) => {
     catch(e){
         return  <div className="error">
                     <p>No film was found on search :(</p>
-                    <p>Search for another movie from 2011 until 2016</p>
+                    <p>Search for another movie from 2000 until 2016</p>
                 </div>;
     }
 };
