@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
+import ExperimentSteps from '../pages/ExperimentSteps/ExperimentSteps';
 import UserForm from '../pages/UserForm/UserForm';
 import Movies from '../pages/Movies/Movies';
 import ExplanationRate from '../pages/ExplanationRate/ExplanationRate';
@@ -19,7 +20,8 @@ export class Content extends Component {
         return (
             <Container>
                 <Switch>
-                    <Route exact path="/" component={UserForm}/>
+                    <Route exact path="/" component={ExperimentSteps}/>
+                    <Route exact path="/userForm" component={UserForm}/>
                     <Route exact path="/movies" component={Movies}/>
                     <Route exact path="/explanationRate" component={ExplanationRate}/>
                     <Route exact path="/explanationCompare" component={ExplanationCompare}/>
