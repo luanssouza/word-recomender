@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Jumbotron, Form, Button, Row, Col, Image } from 'react-bootstrap';
+import './explanationcompare.css'
 import testeImg from '../ExplanationRate/teste.jpg';
 
 export class ExplanationCompare extends Component {
@@ -9,60 +10,54 @@ export class ExplanationCompare extends Component {
         this.state = { 
             movies: [ 
                 { 
-                    justifyA: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.", 
-                    justifyB: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.", 
-                    title: "Images (1972)",
-                    rec: 5, 
-                    qualiA: 5, 
-                    qualiB: 5, 
-                    wordsA: 5, 
-                    wordsB: 5,
+                    justifyA: "Because you rated well the movie \"Stand By Me\" (1986), watch \"Air Bud\" (1997)", 
+                    justifyB: "Because you rated well the movie \"Stand By Me\" (1986) described with the word \"friend\", watch \"Air Bud\" (1997) described with the similar word \"buddy\"", 
+                    title: "Air Bud (1997)",
+                    quality: 5, 
+                    transp: 5, 
+                    engage: 5, 
                     recComments: "",
                     jusComments: "", 
                 },
                 { 
-                    justifyA: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.", 
-                    justifyB: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.", 
-                    title: "Images (1972)",
-                    rec: 5, 
-                    qualiA: 5, 
-                    qualiB: 5, 
-                    wordsA: 5, 
-                    wordsB: 5,
+                    justifyA: "Because you rated well the movie \"Stand By Me\" (1986), watch \"Air Bud\" (1997)", 
+                    justifyB: "Because you rated well the movie \"Stand By Me\" (1986) described with the word \"friend\", watch \"Air Bud\" (1997) described with the similar word \"buddy\"", 
+                    title: "Air Bud (1997)",
+                    quality: 5, 
+                    transp: 5, 
+                    engage: 5, 
                     recComments: "",
                     jusComments: "", 
                 },
+                { 
+                    justifyA: "Because you rated well the movie \"Stand By Me\" (1986), watch \"Air Bud\" (1997)", 
+                    justifyB: "Because you rated well the movie \"Stand By Me\" (1986) described with the word \"friend\", watch \"Air Bud\" (1997) described with the similar word \"buddy\"", 
+                    title: "Air Bud (1997)",
+                    quality: 5, 
+                    transp: 5, 
+                    engage: 5, 
+                    recComments: "",
+                    jusComments: "", 
+                }
             ], 
         };
     }
 
-    handleChangeRec = (event, index) => {
+    handleChangeQuality = (event, index) => {
         let aux = this.state.movies;
-        aux[index].rec = event.target.value;
+        aux[index].quality = event.target.value;
         this.setState({ movies: aux  });
     }
 
-    handleChangeQualiA = (event, index) => {
+    handleChangeTransp = (event, index) => {
         let aux = this.state.movies;
-        aux[index].qualiA = event.target.value;
+        aux[index].transp = event.target.value;
         this.setState({ movies: aux  });
     }
 
-    handleChangeQualiB = (event, index) => {
+    handleChangeEngag = (event, index) => {
         let aux = this.state.movies;
-        aux[index].qualiB = event.target.value;
-        this.setState({ movies: aux  });
-    }
-
-    handleChangeWordsA = (event, index) => {
-        let aux = this.state.movies;
-        aux[index].wordsA = event.target.value;
-        this.setState({ movies: aux  });
-    }
-
-    handleChangeWordsB = (event, index) => {
-        let aux = this.state.movies;
-        aux[index].wordsB = event.target.value;
+        aux[index].engage = event.target.value;
         this.setState({ movies: aux  });
     }
 
@@ -89,46 +84,95 @@ export class ExplanationCompare extends Component {
                 {
                     this.state.movies.map( (movie, index) => (
                         <Jumbotron key={index}>
-                            <Row className="mb-4">
-                                <Col xs={12} md={4}>
+                            <Row className="display-row"> 
+                                <Col className="just" xs={12} md={4}>
                                     <h2><b>Justification A:</b></h2>
                                     <p> { movie.justifyA } </p>
                                 </Col>
-                                <Col xs={12} md={4} className="text-center">
+                                <Col className="img-col" xs={12} md={4}>
                                     <h2><b> { movie.title } </b></h2>
-                                    <Image src={testeImg} className="m-2"/>
+                                    <Image src={testeImg} className="rec-movie"/>
                                 </Col>
-                                <Col xs={12} md={4}>
+                                <Col className="just" xs={12} md={4}>
                                     <h2><b>Justification B:</b></h2>
                                     <p> { movie.justifyB } </p>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col xs={12} md={6}>
-                                    <Form.Group controlId="rec">
-                                        <Form.Label>Recommendation quality: <b>{movie.rec}</b></Form.Label>
-                                        <Form.Control type="range"  min="0" max="10" value={movie.rec} onChange={ (e)=> this.handleChangeRec(e, index)} />
-                                    </Form.Group>
-                                    <Form.Group controlId="qualiA">
-                                        <Form.Label>Quality of justification A: <b>{movie.qualiA}</b></Form.Label>
-                                        <Form.Control type="range"  min="0" max="10" value={movie.qualiA} onChange={ (e)=> this.handleChangeQualiA(e, index)} />
-                                    </Form.Group>
+                                    <Row className="range-row">
+                                        <Col lg={12}>
+                                            <Form.Group controlId="rec">
+                                                <Form.Label>Which justification is more convincing?</Form.Label>
+                                                <div className='rangeWrap'>
+                                                    <input type="range" min="0" max="10" value="5" value={movie.quality} onChange={ (e)=> this.handleChangeQuality(e, index)} />
+                                                    <div className='ticks'>
+                                                    <div className="A"></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div className="B"></div>
+                                                    </div>
+                                                </div>
+                                            </Form.Group>
+                                        </Col>
+                                    </Row>
 
-                                    <Form.Group controlId="qualiB">
-                                        <Form.Label>Quality of justification B: <b>{movie.qualiB}</b></Form.Label>
-                                        <Form.Control type="range"  min="0" max="10" value={movie.qualiB} onChange={ (e)=> this.handleChangeQualiB(e, index)} />
-                                    </Form.Group>
-
-                                    <Form.Group controlId="wordsA">
-                                        <Form.Label>Quality of the words of justification A: <b>{movie.wordsA}</b></Form.Label>
-                                        <Form.Control type="range"  min="0" max="10" value={movie.wordsA} onChange={ (e)=> this.handleChangeWordsA(e, index)} />
-                                    </Form.Group>
-                                    <Form.Group controlId="wordsB">
-                                        <Form.Label>Quality of the words of justification B: <b>{movie.wordsB}</b></Form.Label>
-                                        <Form.Control type="range"  min="0" max="10" value={movie.wordsB} onChange={ (e)=> this.handleChangeWordsB(e, index)} />
-                                    </Form.Group>
+                                    <Row className="range-row">
+                                        <Col lg={12}>
+                                            <Form.Group controlId="transp">
+                                                <Form.Label>Which justification made you understande better the reason why the recommendation was suggested to you?</Form.Label>
+                                                <div className='rangeWrap'>
+                                                    <input type="range" min="0" max="10" value="5" value={movie.transp} onChange={ (e)=> this.handleChangeTransp(e, index)} />
+                                                    <div className='ticks'>
+                                                        <div className="A"></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div className="B"></div>
+                                                    </div>
+                                                </div>
+                                            </Form.Group>
+                                        </Col>
+                                    </Row>
+                                    
+                                    <Row className="range-row">
+                                        <Col lg={12}>
+                                            <Form.Group controlId="engage">
+                                                <Form.Label>Which justification made you discover new information about the movie?</Form.Label>
+                                                <div className='rangeWrap'>
+                                                    <input type="range" min="0" max="10" value="5" value={movie.engage} onChange={ (e)=> this.handleChangeEngag(e, index)}  />
+                                                    <div className='ticks'>
+                                                        <div className="A"></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div className="B"></div>
+                                                    </div>
+                                                </div>
+                                            </Form.Group>
+                                        </Col>
+                                    </Row>
                                 </Col>
-                                <Col xs={12} md={6}>
+                                <Col className="comments" xs={12} md={6}>
                                     <Form.Group controlId="recComments">
                                         <Form.Label>Comments on the Recommendation:</Form.Label>
                                         <Form.Control as="textarea" rows="4" value={movie.recComments} onChange={ (e)=> this.handleChangeRecComments(e, index)} />
