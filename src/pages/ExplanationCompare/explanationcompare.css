@@ -72,6 +72,24 @@
     content: "A";
 }
 
-.comments{
-    padding-top: 1rem;
+.quest-comp-description{
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #350057;
+}
+
+.justification-title{
+    text-align: center;
+}
+
+.justification-compare{
+    text-align: center;
+    font-size: 1.25rem;
+    color: #000000;
+}
+
+.label-compare{
+    font-size: 18px;
 }
