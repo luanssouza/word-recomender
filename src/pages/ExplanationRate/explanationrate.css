@@ -1,0 +1,54 @@
+.rangeWrap-rate {
+    width: 100%;
+  }
+
+.rangeWrap-rate input {
+    width: 100%;
+    margin: 0;
+}
+
+.rangeWrap-rate .ticks {
+    display: flex;
+    justify-content: space-between;
+    height: 6px;
+    margin: -1.5em 5px 0 6px;
+    font: 1rem;
+    counter-reset: count -1;
+}
+
+.rangeWrap-rate .ticks > div {
+    height: 100%;
+    width: 1px;
+    counter-increment: count 1;
+}
+
+.rangeWrap-rate .ticks > div:nth-child(5n - 4) {
+    height: 200%;
+}
+
+.rangeWrap-rate .ticks > div:nth-child(5n - 4)::before {
+    display: block;
+    content: counter(count,decimal);
+    transform: translate(-50%, 100%);
+    text-align: center;
+    width: 16px;
+}
+
+.quest-rate-description{
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #350057;
+}
+
+.justification-rate{
+    margin-top: 1rem;
+    text-align: left;
+    font-size: 1.25rem;
+    color: #000000;
+}
+
+.label-rate{
+    font-size: 18px;
+}
