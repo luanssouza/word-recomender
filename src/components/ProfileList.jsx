@@ -40,7 +40,7 @@ class ProfileList extends React.Component{
                     </Modal.Header>
                     <Modal.Body>
                         {this.props.pro_list.map(item => {
-                            return  <div className="row" key={item.imdbID}>
+                            return  <div id="row-profile" className="row" key={item.imdbID}>
                                         <div className="column col-lg-3  center">
                                             <img className="pro-film-poster" src={item.Poster} alt={"Poster of the film " + item.Title + " from the year " + item.Year} />
                                         </div>
