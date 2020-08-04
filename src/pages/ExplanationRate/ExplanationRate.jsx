@@ -239,7 +239,7 @@ export class ExplanationRate extends Component {
                                         <Row className="range-row">
                                             <Col lg={12}>
                                                 <Form.Group controlId="engage">
-                                                    {/* Trust */}
+                                                    {/* engagement */}
                                                     <Form.Label className="label-rate">The explanation made me discover new information about the movie</Form.Label>
                                                     <div className='rangeWrap-rate'>
                                                         <input type="range" min="0" max="10" value="5" value={movie.engage} onChange={(e) => this.handleChangeEngage(e, index)} />
