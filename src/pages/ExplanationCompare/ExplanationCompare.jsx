@@ -43,6 +43,10 @@ export class ExplanationCompare extends Component {
         };
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     handleChangeQuality = (event, index) => {
         let aux = this.state.movies;
         aux[index].quality = event.target.value;

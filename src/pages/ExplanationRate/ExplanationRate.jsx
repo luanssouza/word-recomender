@@ -45,7 +45,10 @@ export class ExplanationRate extends Component {
         this.handlerNext = this.handlerNext.bind(this);
     }
 
-    
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     handleChangeRecommendation = (event, index) => {
         let aux = this.state.movies;
         aux[index].effectiveness = event.target.value;
