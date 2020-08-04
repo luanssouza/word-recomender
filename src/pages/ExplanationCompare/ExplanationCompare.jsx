@@ -127,7 +127,7 @@ export class ExplanationCompare extends Component {
                                     <Row className="range-row">
                                         <Col lg={12}>
                                             <Form.Group controlId="transp">
-                                                <Form.Label>Which justification made you understande better the reason why the recommendation was suggested to you?</Form.Label>
+                                                <Form.Label>Which justification made you understand better the reason why the recommendation was suggested to you?</Form.Label>
                                                 <div className='rangeWrap'>
                                                     <input type="range" min="0" max="10" value="5" value={movie.transp} onChange={ (e)=> this.handleChangeTransp(e, index)} />
                                                     <div className='ticks'>

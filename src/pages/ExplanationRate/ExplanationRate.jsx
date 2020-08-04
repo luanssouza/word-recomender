@@ -9,8 +9,8 @@ export class ExplanationRate extends Component {
         this.state = { 
             movies: [ 
                 { 
-                    title: "Images (1972)", 
-                    justify: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.",
+                    title: "AirBud (1997)", 
+                    justify: "Because you rated well the movie \"Stand By Me\" (1986) described with the word \"friend\", watch \"Air Bud\" (1997) described with the similar word \"buddy\"",
                     recommendation: 5, 
                     transparency: 5, 
                     surprise: 5,
@@ -18,8 +18,8 @@ export class ExplanationRate extends Component {
                     jusComments: "", 
                 },
                 { 
-                    title: "Images (1972)", 
-                    justify: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.",
+                    title: "AirBud (1997)", 
+                    justify: "Because you rated well the movie \"Stand By Me\" (1986) described with the word \"friend\", watch \"Air Bud\" (1997) described with the similar word \"buddy\"",
                     recommendation: 5, 
                     transparency: 5, 
                     surprise: 5,
@@ -27,8 +27,8 @@ export class ExplanationRate extends Component {
                     jusComments: "", 
                 },
                 { 
-                    title: "Images (1972)", 
-                    justify: "Schizophrenic housewife, engulfed by terrorizing apparitions, kills off each, unknowing if these demons are merely figments of her hallucinatory imagination or part of reality.",
+                    title: "AirBud (1997)", 
+                    justify: "Because you rated well the movie \"Stand By Me\" (1986) described with the word \"friend\", watch \"Air Bud\" (1997) described with the similar word \"buddy\"",
                     recommendation: 5, 
                     transparency: 5, 
                     surprise: 5,
