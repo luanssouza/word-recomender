@@ -19,7 +19,7 @@ export class Movies extends Component {
     onSearchSubmit = async (film) => {
         const response = await Omdb.get( '', {
             params: {
-                s: film 
+                title: film 
             }
         });
 
