@@ -14,10 +14,11 @@ export class Movies extends Component {
         this.findFilmByImdbId = this.findFilmByImdbId.bind(this);
         this.addMovie = this.addMovie.bind(this);
         this.removeMovie = this.removeMovie.bind(this);
+        this.onInit();
     }
 
     onSearchSubmit = async (film) => {
-        const response = await Omdb.get( '', {
+        const response = await Omdb.get( 'omdb', {
             params: {
                 title: film 
             }
@@ -28,6 +29,13 @@ export class Movies extends Component {
 
         // console.log(response.data.Search)
         this.setState({films: response.data.Search})
+    }
+
+    onInit = async () => {
+            const response = await Omdb.get( 'mostwatched');
+    
+            // console.log(response.data.Search)
+            this.setState({films: response.data});
     }
 
     findFilmByImdbId = (imbd_id) => {
