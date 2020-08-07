@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux'
 
-import userReducer from './user/user'
-import moviesReducer from './movie/movies'
-import recommendationsReducer from './recommendation/recommendation'
+import userReducer from './reducers/user/user'
+import moviesReducer from './reducers/movie/movies'
+import recommendationsReducer from './reducers/recommendation/recommendation'
 
 const reducers = combineReducers({
     user: userReducer,
