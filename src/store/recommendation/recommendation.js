@@ -1,11 +1,11 @@
-import { ADD_MOVIES } from '../actions/actionsConst';
+import { ADD_RECOMMENDATION } from '../actions/actionsConst';
 
 export default (state = {}, action) => {
     switch(action.type) {
-        case ADD_MOVIES:
+        case ADD_RECOMMENDATION:
             return {
                 ...state,
-                movies: action.payload
+                recommendations: action.payload
             };
         default:
             return state;

@@ -1,45 +1,16 @@
 import React, { Component } from 'react'
 import { Jumbotron, Form, Button, Row, Col, Image } from 'react-bootstrap';
 import './explanationrate.css';
-import testeImg from './teste.jpg';
+import { connect } from 'react-redux';
+import { ADD_MOVIES, ADD_RECOMMENDATION } from '../../store/actions/actionsConst';
 
 export class ExplanationRate extends Component {
     constructor(props) {
         super(props);
 
+        let rec = this.props.recommendations.recommendations
         this.state = { 
-            movies: [ 
-                { 
-                    title: "AirBud (1997)", 
-                    justify: "Because you rated well the movie \"Stand By Me\" (1986) described with the word \"friend\", watch \"Air Bud\" (1997) described with the similar word \"buddy\"",
-                    effectiveness: 5, 
-                    transparency: 5, 
-                    words: 5,
-                    persuasion: 5,
-                    trust: 5,
-                    engage: 5,
-                },
-                { 
-                    title: "AirBud (1997)", 
-                    justify: "Because you rated well the movie \"Stand By Me\" (1986) described with the word \"friend\", watch \"Air Bud\" (1997) described with the similar word \"buddy\"",
-                    effectiveness: 5, 
-                    transparency: 5, 
-                    words: 5,
-                    persuasion: 5,
-                    trust: 5,
-                    engage: 5,
-                },
-                { 
-                    title: "AirBud (1997)", 
-                    justify: "Because you rated well the movie \"Stand By Me\" (1986) described with the word \"friend\", watch \"Air Bud\" (1997) described with the similar word \"buddy\"",
-                    effectiveness: 5, 
-                    transparency: 5, 
-                    words: 5,
-                    persuasion: 5,
-                    trust: 5,
-                    engage: 5,
-                },
-            ]
+            movies: rec ? rec : []
         };
 
         this.handlerNext = this.handlerNext.bind(this);
@@ -101,11 +72,11 @@ export class ExplanationRate extends Component {
                             <Jumbotron key={index}>
                                 <Row className="mb-4">
                                     <Col xs={12} md={4} lg={3} className="text-center">
-                                        <Image src={testeImg} className="m-2" />
+                                        <Image src={movie.poster} className="m-2" />
                                     </Col>
                                     <Col xs={12} md={8} lg={9} >
                                         <h1><b>{movie.title}</b></h1>
-                                        <p className="justification-rate"> {movie.justify} </p>
+                                        <p className="justification-rate"> {movie.explanation} </p>
                                     </Col>
                                 </Row>
                                 <Row>
@@ -272,4 +243,17 @@ export class ExplanationRate extends Component {
     }
 }
 
-export default ExplanationRate
+const mapStateToProps = (state) => ({
+    user: state.user,
+    movies: state.movies,
+    recommendations: state.recommendations,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    onSubmitMovies: (value) =>
+        dispatch({ type: ADD_MOVIES, payload: value }),
+    onSubmitRecommendation: (value) =>
+        dispatch({ type: ADD_RECOMMENDATION, payload: value })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExplanationRate);

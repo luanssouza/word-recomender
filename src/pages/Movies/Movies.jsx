@@ -4,7 +4,8 @@ import ImageList from '../../components/ImageList';
 import ProfileList from '../../components/ProfileList';
 import Next from '../../components/Next';
 import { connect } from 'react-redux';
-import { getMoviesByTitle, getMovies } from '../../services/MovieService';
+import { getMoviesByTitle, getMovies, getRecommendation } from '../../services/MovieService';
+import { ADD_MOVIES, ADD_RECOMMENDATION } from '../../store/actions/actionsConst';
 
 export class Movies extends Component {
 
@@ -102,13 +103,30 @@ export class Movies extends Component {
         }
     }
 
+    handleNext = async (event) => {
+        
+        let body = {
+            user_id: 8,
+            movies: this.state.profile_films.map( x => x.imdbID)
+        }
+
+        this.setState({ next: true });
+
+        let recommendations = await getRecommendation(body);
+
+        this.props.onSubmitMovies(body.movies);
+        this.props.onSubmitRecommendation(recommendations.data);
+
+        this.props.history.push('/explanationRate');
+    }
+
     render() {
         return (
             <div>
                 <ProfileList pro_list={this.state.profile_films} nfavs={this.state.profile_films.length} removeMovie={this.removeMovie}></ProfileList>
                 <SearchBar onSubmit={this.onSearchSubmit}/>
                 <ImageList addMovie={this.addMovie} films={this.state.films}/>
-                <Next next={this.state.next}></Next>
+                <Next next={this.state.next} onNext={this.handleNext}></Next>
             </div>
         )
     }
@@ -116,11 +134,15 @@ export class Movies extends Component {
 
 const mapStateToProps = (state) => ({
     user: state.user,
+    movies: state.movies,
+    recommendations: state.recommendations,
 });
 
-// const mapDispatchToProps = (dispatch) => ({
-//     onSubmitUser: (value) =>
-//         dispatch({ type: ADD_USER, payload: value })
-// });
+const mapDispatchToProps = (dispatch) => ({
+    onSubmitMovies: (value) =>
+        dispatch({ type: ADD_MOVIES, payload: value }),
+    onSubmitRecommendation: (value) =>
+        dispatch({ type: ADD_RECOMMENDATION, payload: value })
+});
 
-export default connect(mapStateToProps)(Movies);
+export default connect(mapStateToProps, mapDispatchToProps)(Movies);

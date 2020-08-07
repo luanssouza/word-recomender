@@ -1,2 +1,3 @@
 export const ADD_USER = 'ADD_USER';
 export const ADD_MOVIES = 'ADD_MOVIES';
+export const ADD_RECOMMENDATION = 'ADD_RECOMMENDATION';

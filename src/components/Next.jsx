@@ -12,7 +12,7 @@ class Next extends React.Component {
     }
 
     handleSubmit(event) {
-        this.props.history.push('/explanationRate');
+        this.props.onNext();
     }
 
     render(){
