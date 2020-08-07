@@ -104,9 +104,8 @@ export class Movies extends Component {
     }
 
     handleNext = async (event) => {
-        
         let body = {
-            user_id: 8,
+            user_id: this.props.user.user.id,
             movies: this.state.profile_films.map( x => x.imdbID)
         }
 

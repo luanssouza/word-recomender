@@ -75,7 +75,7 @@ export class ExplanationRate extends Component {
                                         <Image src={movie.poster} className="m-2" width="192px"/>
                                     </Col>
                                     <Col xs={12} md={8} lg={9} >
-                                        <h1><b>{movie.title}</b></h1>
+                                        <h1><b>{movie.title} ({movie.year})</b></h1>
                                         <p className="justification-rate"> {movie.explanation} </p>
                                     </Col>
                                 </Row>
