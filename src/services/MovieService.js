@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-class MovieService {
-    getMovies = async () => axios.get('example');
-    getMovieJustify = async (movie_id) => axios.get(`example/${movie_id}`);
-    getMovieJustifies = async (movie_id) => axios.get(`example/${movie_id}`);
-}
 
-export default MovieService;
+const httpClient = axios.create({ baseURL: process.env.REACT_APP_API_URL });
+
+export const getMovies = async () => httpClient.get('mostwatched');
+export const getMoviesByTitle = async (title) => httpClient.get( 'omdb', { params: { title: title } });
+export const getMovieJustify = async (movie_id) => httpClient.get(`example/${movie_id}`);
+export const getMovieJustifies = async (movie_id) => httpClient.get(`example/${movie_id}`);

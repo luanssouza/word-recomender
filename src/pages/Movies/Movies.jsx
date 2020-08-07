@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import Omdb from '../../services/Omdb'
 import SearchBar from '../../components/SearchBar';
 import ImageList from '../../components/ImageList';
 import ProfileList from '../../components/ProfileList';
 import Next from '../../components/Next';
+import { connect } from 'react-redux';
+import { getMoviesByTitle, getMovies } from '../../services/MovieService';
 
 export class Movies extends Component {
 
@@ -18,11 +19,7 @@ export class Movies extends Component {
     }
 
     onSearchSubmit = async (film) => {
-        const response = await Omdb.get( 'omdb', {
-            params: {
-                title: film 
-            }
-        });
+        const response = await getMoviesByTitle(film);
 
         if (response.data.Search)
             response.data.Search.forEach( f => this.state.profile_films.forEach( p => f.imdbID === p.imdbID ? f.like = true : null ));
@@ -32,7 +29,7 @@ export class Movies extends Component {
     }
 
     onInit = async () => {
-            const response = await Omdb.get( 'mostwatched');
+            const response = await getMovies();
     
             // console.log(response.data.Search)
             this.setState({films: response.data});
@@ -117,4 +114,13 @@ export class Movies extends Component {
     }
 }
 
-export default Movies
+const mapStateToProps = (state) => ({
+    user: state.user,
+});
+
+// const mapDispatchToProps = (dispatch) => ({
+//     onSubmitUser: (value) =>
+//         dispatch({ type: ADD_USER, payload: value })
+// });
+
+export default connect(mapStateToProps)(Movies);

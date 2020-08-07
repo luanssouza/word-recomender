@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-class UserService {
-    postUser = async (user) => axios.post('example', user);
-}
+const httpClient = axios.create({ baseURL: process.env.REACT_APP_API_URL });
 
-export default UserService;
+export const insertUser = async (user) => httpClient.post('user', user);

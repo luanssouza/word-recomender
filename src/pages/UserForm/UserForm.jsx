@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { ADD_USER } from '../../store/actions/actionsConst';
+import { insertUser } from '../../services/UserService';
 
 export class UserForm extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { age: 0, gender: 0, education: 0, recsys: 0, accept: false };
+        this.state = { id: null, age: 0, gender: 0, education: 0, usedRecSys: 0, terms_accept: false };
     }
 
     handleChangeAge = (event) => {
@@ -21,15 +24,21 @@ export class UserForm extends Component {
     }
 
     handleChangeRecsys = (event) => {
-        this.setState({ recsys: event.target.value });  
+        this.setState({ usedRecSys: event.target.value });  
     }
 
     handleChangeAccept = () => {
-        this.setState({ accept: !this.state.accept });  
+        this.setState({ terms_accept: !this.state.terms_accept });  
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
+
+        let { data } = await insertUser(this.state);
+
+        this.setState({ id: data });
+
+        this.props.onSubmitUser(this.state);
 
         this.props.history.push('/movies');
     }
@@ -64,21 +73,28 @@ export class UserForm extends Component {
                         <option value="4">Others</option>
                     </Form.Control>
                 </Form.Group>
-                <Form.Group controlId="recsys">
+                <Form.Group controlId="usedRecSys">
                     <Form.Label>Have ever you used another recommender systems? (Such as Amazon and Netflix)</Form.Label>
-                    <Form.Control as="select" value={this.state.recsys} onChange={this.handleChangeRecsys}>
+                    <Form.Control as="select" value={this.state.usedRecSys} onChange={this.handleChangeRecsys}>
                         <option value="0">No</option>
                         <option value="1">Yes</option>
                         <option value="2">I don't know</option>
                     </Form.Control>
                 </Form.Group>
-                <Form.Group controlId="Accept">
-                    <Form.Check type="checkbox" label="I accept the use of the information provided in this survey" value={this.state.accept} onChange={this.handleChangeAccept} />
+                <Form.Group controlId="terms_accept">
+                    <Form.Check type="checkbox" label="I terms_accept the use of the information provided in this survey" value={this.state.terms_accept} onChange={this.handleChangeAccept} />
                 </Form.Group>
-                <Button className="float-lg-right" as="input" type="submit" value="Next" disabled={!this.state.accept} />
+                <Button className="float-lg-right" as="input" type="submit" value="Next" disabled={!this.state.terms_accept} />
             </Form>
         )
     }
 }
+const mapStateToProps = (state) => ({
+    user: state.user,
+});
 
-export default UserForm
+const mapDispatchToProps = (dispatch) => ({
+  onSubmitUser: (value) => dispatch({ type: ADD_USER, payload: value }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserForm);
