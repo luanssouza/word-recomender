@@ -112,7 +112,7 @@ export class ExplanationCompare extends Component {
                                                     {/* Persuasion */}
                                                     <Form.Label className="label-compare">Which justification is more convincing?</Form.Label>
                                                     <div className='rangeWrap'>
-                                                        <input type="range" min="0" max="10" value="5" value={movie.quality} onChange={ (e)=> this.handleChangeQuality(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.quality} onChange={ (e)=> this.handleChangeQuality(e, index)} />
                                                         <div className='ticks'>
                                                         <div className="A"></div>
                                                             <div></div>
@@ -137,7 +137,7 @@ export class ExplanationCompare extends Component {
                                                     {/* Transparency */}
                                                     <Form.Label className="label-compare">Which justification made you understand better the reason why the recommendation was suggested to you?</Form.Label>
                                                     <div className='rangeWrap'>
-                                                        <input type="range" min="0" max="10" value="5" value={movie.transp} onChange={ (e)=> this.handleChangeTransp(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.transp} onChange={ (e)=> this.handleChangeTransp(e, index)} />
                                                         <div className='ticks'>
                                                             <div className="A"></div>
                                                             <div></div>
@@ -162,7 +162,7 @@ export class ExplanationCompare extends Component {
                                                     {/* Engagement */}
                                                     <Form.Label className="label-compare">Which justification made you discover new information about the movie?</Form.Label>
                                                     <div className='rangeWrap'>
-                                                        <input type="range" min="0" max="10" value="5" value={movie.engage} onChange={ (e)=> this.handleChangeEngag(e, index)}  />
+                                                        <input type="range" min="0" max="10" value={movie.engage} onChange={ (e)=> this.handleChangeEngag(e, index)}  />
                                                         <div className='ticks'>
                                                             <div className="A"></div>
                                                             <div></div>

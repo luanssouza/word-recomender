@@ -116,7 +116,7 @@ export class ExplanationRate extends Component {
                                                     {/* Effectiveness */}
                                                     <Form.Label className="label-rate">I liked the recommendation</Form.Label>
                                                     <div className='rangeWrap-rate'>
-                                                        <input type="range" min="0" max="10" value="5" value={movie.effectiveness} onChange={(e) => this.handleChangeRecommendation(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.effectiveness} onChange={(e) => this.handleChangeRecommendation(e, index)} />
                                                         <div className='ticks'>
                                                             <div></div>
                                                             <div></div>
@@ -141,7 +141,7 @@ export class ExplanationRate extends Component {
                                                     {/* Transparency */}
                                                     <Form.Label className="label-rate">With the explanation, I understood why the recommendation was made for me</Form.Label>
                                                     <div className='rangeWrap-rate'>
-                                                        <input type="range" min="0" max="10" value="5" value={movie.transparency} onChange={(e) => this.handleChangeTransparency(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.transparency} onChange={(e) => this.handleChangeTransparency(e, index)} />
                                                         <div className='ticks'>
                                                             <div></div>
                                                             <div></div>
@@ -166,7 +166,7 @@ export class ExplanationRate extends Component {
                                                     {/* Choose of words */}
                                                     <Form.Label className="label-rate">I liked the choose and relation of both words that describes the movies</Form.Label>
                                                     <div className='rangeWrap-rate'>
-                                                        <input type="range" min="0" max="10" value="5" value={movie.words} onChange={(e) => this.handleChangeWords(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.words} onChange={(e) => this.handleChangeWords(e, index)} />
                                                         <div className='ticks'>
                                                             <div></div>
                                                             <div></div>
@@ -192,7 +192,7 @@ export class ExplanationRate extends Component {
                                                     {/* Persuasion */}
                                                     <Form.Label className="label-rate">The explanation made me more interested on the movie</Form.Label>
                                                     <div className='rangeWrap-rate'>
-                                                        <input type="range" min="0" max="10" value="5" value={movie.persuasion} onChange={(e) => this.handleChangePersuasion(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.persuasion} onChange={(e) => this.handleChangePersuasion(e, index)} />
                                                         <div className='ticks'>
                                                             <div></div>
                                                             <div></div>
@@ -217,7 +217,7 @@ export class ExplanationRate extends Component {
                                                     {/* Trust */}
                                                     <Form.Label className="label-rate">The explanation provided made me have more confidence on the recommender system</Form.Label>
                                                     <div className='rangeWrap-rate'>
-                                                        <input type="range" min="0" max="10" value="5" value={movie.trust} onChange={(e) => this.handleChangeTrust(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.trust} onChange={(e) => this.handleChangeTrust(e, index)} />
                                                         <div className='ticks'>
                                                             <div></div>
                                                             <div></div>
@@ -242,7 +242,7 @@ export class ExplanationRate extends Component {
                                                     {/* engagement */}
                                                     <Form.Label className="label-rate">The explanation made me discover new information about the movie</Form.Label>
                                                     <div className='rangeWrap-rate'>
-                                                        <input type="range" min="0" max="10" value="5" value={movie.engage} onChange={(e) => this.handleChangeEngage(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.engage} onChange={(e) => this.handleChangeEngage(e, index)} />
                                                         <div className='ticks'>
                                                             <div></div>
                                                             <div></div>
