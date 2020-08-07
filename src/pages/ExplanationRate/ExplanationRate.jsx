@@ -72,7 +72,7 @@ export class ExplanationRate extends Component {
                             <Jumbotron key={index}>
                                 <Row className="mb-4">
                                     <Col xs={12} md={4} lg={3} className="text-center">
-                                        <Image src={movie.poster} className="m-2" />
+                                        <Image src={movie.poster} className="m-2" width="192px"/>
                                     </Col>
                                     <Col xs={12} md={8} lg={9} >
                                         <h1><b>{movie.title}</b></h1>
