@@ -82,7 +82,7 @@ export class UserForm extends Component {
                     </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="terms_accept">
-                    <Form.Check type="checkbox" label="I terms_accept the use of the information provided in this survey" value={this.state.terms_accept} onChange={this.handleChangeAccept} />
+                    <Form.Check type="checkbox" label="I accept the use of the information provided in this survey" value={this.state.terms_accept} onChange={this.handleChangeAccept} />
                 </Form.Group>
                 <Button className="float-lg-right" as="input" type="submit" value="Next" disabled={!this.state.terms_accept} />
             </Form>

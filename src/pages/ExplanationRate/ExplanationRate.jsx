@@ -2,18 +2,16 @@ import React, { Component } from 'react'
 import { Jumbotron, Form, Button, Row, Col, Image } from 'react-bootstrap';
 import './explanationrate.css';
 import { connect } from 'react-redux';
-import { ADD_MOVIES, ADD_RECOMMENDATION } from '../../store/actions/actionsConst';
+import { ADD_EXPLANATIONS } from '../../store/actions/actionsConst';
+import { postRate, getExplanations } from '../../services/MovieService';
 
 export class ExplanationRate extends Component {
     constructor(props) {
         super(props);
 
-        let rec = this.props.recommendations.recommendations
-        this.state = { 
-            movies: rec ? rec : []
-        };
-
-        this.handlerNext = this.handlerNext.bind(this);
+        let rec = this.props.recommendations.recommendations;
+        rec = !rec ? [] : rec.map(x => x = {...x,liked: 5,understood: 5,words: 5,interested: 5,confidence: 5,discover: 5});
+        this.state = { movies: rec};
     }
 
     componentDidMount() {
@@ -22,13 +20,13 @@ export class ExplanationRate extends Component {
 
     handleChangeRecommendation = (event, index) => {
         let aux = this.state.movies;
-        aux[index].effectiveness = event.target.value;
+        aux[index].liked = event.target.value;
         this.setState({ movies: aux  });
     }
 
     handleChangeTransparency = (event, index) => {
         let aux = this.state.movies;
-        aux[index].transparency = event.target.value;
+        aux[index].understood = event.target.value;
         this.setState({ movies: aux  });
     }
 
@@ -40,24 +38,33 @@ export class ExplanationRate extends Component {
 
     handleChangePersuasion = (event, index) => {
         let aux = this.state.movies;
-        aux[index].persuasion = event.target.value;
+        aux[index].interested = event.target.value;
         this.setState({ movies: aux  });
     }
 
     handleChangeTrust = (event, index) => {
         let aux = this.state.movies;
-        aux[index].trust = event.target.value;
+        aux[index].confidence = event.target.value;
         this.setState({ movies: aux  });
     }
 
     handleChangeEngage = (event, index) => {
         let aux = this.state.movies;
-        aux[index].engage = event.target.value;
+        aux[index].discover = event.target.value;
         this.setState({ movies: aux  });
     }
 
-    handlerNext(event) {
+    handlerNext = async (event) => {
         event.preventDefault();
+
+        let body = {
+            user_id: this.props.user.user.id,
+            rates: this.state.movies
+        }
+
+        await postRate(body);
+        let explanations = await getExplanations({user_id: body.user_id, movies: this.state.movies});
+        this.props.onSubmitExplanations(explanations.data);
 
         this.props.history.push('/explanationCompare');
     }
@@ -83,11 +90,11 @@ export class ExplanationRate extends Component {
                                     <Col xs={12} md={6}>
                                         <Row className="range-row">
                                             <Col lg={12}>
-                                                <Form.Group controlId="effectiveness">
+                                                <Form.Group controlId="liked">
                                                     {/* Effectiveness */}
                                                     <Form.Label className="label-rate">I liked the recommendation</Form.Label>
                                                     <div className='rangeWrap-rate'>
-                                                        <input type="range" min="0" max="10" value={movie.effectiveness} onChange={(e) => this.handleChangeRecommendation(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.liked} onChange={(e) => this.handleChangeRecommendation(e, index)} />
                                                         <div className='ticks'>
                                                             <div></div>
                                                             <div></div>
@@ -108,11 +115,11 @@ export class ExplanationRate extends Component {
 
                                         <Row className="range-row">
                                             <Col lg={12}>
-                                                <Form.Group controlId="transparency">
+                                                <Form.Group controlId="understood">
                                                     {/* Transparency */}
                                                     <Form.Label className="label-rate">With the explanation, I understood why the recommendation was made for me</Form.Label>
                                                     <div className='rangeWrap-rate'>
-                                                        <input type="range" min="0" max="10" value={movie.transparency} onChange={(e) => this.handleChangeTransparency(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.understood} onChange={(e) => this.handleChangeTransparency(e, index)} />
                                                         <div className='ticks'>
                                                             <div></div>
                                                             <div></div>
@@ -159,11 +166,11 @@ export class ExplanationRate extends Component {
                                     <Col xs={12} md={6}>
                                         <Row className="range-row">
                                             <Col lg={12}>
-                                                <Form.Group controlId="persuasion">
+                                                <Form.Group controlId="interested">
                                                     {/* Persuasion */}
                                                     <Form.Label className="label-rate">The explanation made me more interested on the movie</Form.Label>
                                                     <div className='rangeWrap-rate'>
-                                                        <input type="range" min="0" max="10" value={movie.persuasion} onChange={(e) => this.handleChangePersuasion(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.interested} onChange={(e) => this.handleChangePersuasion(e, index)} />
                                                         <div className='ticks'>
                                                             <div></div>
                                                             <div></div>
@@ -184,11 +191,11 @@ export class ExplanationRate extends Component {
 
                                         <Row className="range-row">
                                             <Col lg={12}>
-                                                <Form.Group controlId="trust">
+                                                <Form.Group controlId="confidence">
                                                     {/* Trust */}
                                                     <Form.Label className="label-rate">The explanation provided made me have more confidence on the recommender system</Form.Label>
                                                     <div className='rangeWrap-rate'>
-                                                        <input type="range" min="0" max="10" value={movie.trust} onChange={(e) => this.handleChangeTrust(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.confidence} onChange={(e) => this.handleChangeTrust(e, index)} />
                                                         <div className='ticks'>
                                                             <div></div>
                                                             <div></div>
@@ -209,11 +216,11 @@ export class ExplanationRate extends Component {
 
                                         <Row className="range-row">
                                             <Col lg={12}>
-                                                <Form.Group controlId="engage">
+                                                <Form.Group controlId="discover">
                                                     {/* engagement */}
                                                     <Form.Label className="label-rate">The explanation made me discover new information about the movie</Form.Label>
                                                     <div className='rangeWrap-rate'>
-                                                        <input type="range" min="0" max="10" value={movie.engage} onChange={(e) => this.handleChangeEngage(e, index)} />
+                                                        <input type="range" min="0" max="10" value={movie.discover} onChange={(e) => this.handleChangeEngage(e, index)} />
                                                         <div className='ticks'>
                                                             <div></div>
                                                             <div></div>
@@ -247,13 +254,12 @@ const mapStateToProps = (state) => ({
     user: state.user,
     movies: state.movies,
     recommendations: state.recommendations,
+    explanations: state.explanations,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onSubmitMovies: (value) =>
-        dispatch({ type: ADD_MOVIES, payload: value }),
-    onSubmitRecommendation: (value) =>
-        dispatch({ type: ADD_RECOMMENDATION, payload: value })
+    onSubmitExplanations: (value) =>
+        dispatch({ type: ADD_EXPLANATIONS, payload: value })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExplanationRate);
