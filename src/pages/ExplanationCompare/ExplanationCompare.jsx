@@ -9,7 +9,7 @@ export class ExplanationCompare extends Component {
         super(props);
 
         let exp = this.props.explanations.explanations;
-        exp = !exp ? [] : exp.map(x => x = {...x,convincing: 5,understood: 5,discover: 5,commentrec: 5,commentjust: 5});
+        exp = !exp ? [] : exp.map(x => x = {...x,convincing: 5,understood: 5,discover: 5,commentrec: "",commentjust: ""});
 
         this.state = { movies: exp };
     }
