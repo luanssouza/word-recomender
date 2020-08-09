@@ -6,10 +6,11 @@ import Next from '../../components/Next';
 import { connect } from 'react-redux';
 import { getMoviesByTitle, getMovies, getRecommendation } from '../../services/MovieService';
 import { ADD_MOVIES, ADD_RECOMMENDATION } from '../../store/actions/actionsConst';
+import Loader from '../../components/loader/Loader';
 
 export class Movies extends Component {
 
-    state = {films: [], profile_films: [], next: true};
+    state = {films: [], profile_films: [], next: true, process: false};
 
     constructor(props){
         super(props);
@@ -20,13 +21,14 @@ export class Movies extends Component {
     }
 
     onSearchSubmit = async (film) => {
+        this.setState({process: true});
         const response = await getMoviesByTitle(film);
+        let search = response.data.Search;
+        if (search)
+            search.forEach( f => this.state.profile_films.forEach( p => f.imdbID === p.imdbID ? f.like = true : null ));
 
-        if (response.data.Search)
-            response.data.Search.forEach( f => this.state.profile_films.forEach( p => f.imdbID === p.imdbID ? f.like = true : null ));
-
-        // console.log(response.data.Search)
-        this.setState({films: response.data.Search})
+        // console.log(search)
+        this.setState({films: search, process: false})
     }
 
     onInit = async () => {
@@ -104,6 +106,8 @@ export class Movies extends Component {
     }
 
     handleNext = async (event) => {
+        this.setState({process: true});
+
         let body = {
             user_id: this.props.user.user.id,
             movies: this.state.profile_films.map( x => x.imdbID)
@@ -116,6 +120,8 @@ export class Movies extends Component {
         this.props.onSubmitMovies(body.movies);
         this.props.onSubmitRecommendation(recommendations.data);
 
+        this.setState({process: false});
+
         this.props.history.push('/explanationRate');
     }
 
@@ -126,6 +132,7 @@ export class Movies extends Component {
                 <SearchBar onSubmit={this.onSearchSubmit}/>
                 <ImageList addMovie={this.addMovie} films={this.state.films}/>
                 <Next next={this.state.next} onNext={this.handleNext}></Next>
+                { this.state.process ? <Loader></Loader> : null}
             </div>
         )
     }
