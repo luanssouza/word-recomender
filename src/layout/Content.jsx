@@ -13,8 +13,10 @@ import { connect } from 'react-redux';
 export class Content extends Component {
     constructor(props) {
         super(props);
-        this.state = { user: !this.props.user.user };
+        this.state = { user: this.props.user.user };
     }
+
+    isUser = (Component) => this.state.user ? <Component /> : <Redirect to="/"/>;
     
     render() {
         return (
@@ -22,10 +24,10 @@ export class Content extends Component {
                 <Switch>
                     <Route exact path="/" component={ExperimentSteps}/>
                     <Route exact path="/userForm" component={UserForm}/>
-                    <Route exact path="/movies" render={() => this.state.user ? <Redirect to="/"/> : <Movies />}/>
-                    <Route exact path="/explanationRate" render={() => this.state.user ? <Redirect to="/"/> : <ExplanationRate />}/>
-                    <Route exact path="/explanationCompare" render={() => this.state.user ? <Redirect to="/"/> : <ExplanationCompare />}/>
-                    <Route exact path="/final" render={() => this.state.user ? <Redirect to="/"/> : <Final />}/>
+                    <Route exact path="/movies" render={() => this.isUser(Movies)} />
+                    <Route exact path="/explanationRate" render={() => this.isUser(ExplanationRate)}/>
+                    <Route exact path="/explanationCompare" render={() => this.isUser(ExplanationCompare)}/>
+                    <Route exact path="/final" render={() => this.isUser(Final)}/>
                 </Switch>
             </Container>
         )

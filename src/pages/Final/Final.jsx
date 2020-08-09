@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 
-export class UserForm extends Component {
+export class Final extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -19,4 +19,4 @@ export class UserForm extends Component {
     }
 }
 
-export default UserForm
+export default Final
