@@ -16,7 +16,7 @@ export class Content extends Component {
         this.state = { user: this.props.user.user };
     }
 
-    isUser = (Component) => this.state.user ? <Component /> : <Redirect to="/"/>;
+    isUser = (Component) => this.props.user.user ? <Component /> : <Redirect to="/"/>;
     
     render() {
         return (
