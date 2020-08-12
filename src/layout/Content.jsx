@@ -16,7 +16,7 @@ export class Content extends Component {
         this.state = { user: this.props.user.user };
     }
 
-    isUser = (Component) => this.props.user.user ? <Component /> : <Redirect to="/"/>;
+    isUser = (Component, routeProps) => this.props.user.user ? <Component {...routeProps}/> : <Redirect to="/"/>;
     
     render() {
         return (
@@ -24,10 +24,10 @@ export class Content extends Component {
                 <Switch>
                     <Route exact path="/" component={ExperimentSteps}/>
                     <Route exact path="/userForm" component={UserForm}/>
-                    <Route exact path="/movies" render={() => this.isUser(Movies)} />
-                    <Route exact path="/explanationRate" render={() => this.isUser(ExplanationRate)}/>
-                    <Route exact path="/explanationCompare" render={() => this.isUser(ExplanationCompare)}/>
-                    <Route exact path="/final" render={() => this.isUser(Final)}/>
+                    <Route exact path="/movies" render={(routeProps) => this.isUser(Movies, routeProps)} />
+                    <Route exact path="/explanationRate" render={(routeProps) => this.isUser(ExplanationRate, routeProps)}/>
+                    <Route exact path="/explanationCompare" render={(routeProps) => this.isUser(ExplanationCompare, routeProps)}/>
+                    <Route exact path="/final" render={(routeProps) => this.isUser(Final, routeProps)}/>
                 </Switch>
             </Container>
         )
