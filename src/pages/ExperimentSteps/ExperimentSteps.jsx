@@ -27,7 +27,7 @@ export class ExperimentSteps extends Component {
                 <h2 className="sub-title">Etapas do experimento e Pré-Requisitos</h2>
                 <p className="text-desc">
                     O procedimento de coleta de dados acontecerá da seguinte forma: 
-                    será inicialmente requerido para que sejam completados seus dados pessoais, em seguida, você irá pesquisar e avaliar filmes de sua preferência e, 
+                    será inicialmente requerido para que sejam completados alguns dados, em seguida, você irá pesquisar e avaliar filmes de sua preferência e, 
                     posteriormente, será gerada uma recomendação com várias explicações para a mesma. Por meio de um questionário, você nos dirá qual a justificativa de 
                     sua preferência, encerrando o experimento.
                 </p>
@@ -45,15 +45,26 @@ export class ExperimentSteps extends Component {
                     justificativa.
                 </p>
                 <p className="text-desc">
-                    Existe um desconforto e risco mínimo na participação da coleta dados, já que os filmes podem gerar pensamentos e sensações negativas. 
+                    Pode existir um desconforto e risco mínimo na participação da coleta dados, já que os filmes podem gerar pensamentos e sensações negativas. 
                     Nesse sentido, é importante destacar que a qualquer momento o participante poderá interromper o preenchimento dos formulários ao fechar a janela do seu navegador.
                 </p>
                 <p className="text-desc">
                     Você não será identificado(a) em nenhuma publicação que possa resultar deste estudo. 
                     A participação no estudo não acarretará custos para você e não será disponível nenhuma compensação financeira adicional.
                 </p>
+                <hr></hr>
+                <h2 className="sub-title">Contatos</h2>
+                <p className="text-desc">
+                    Você pode contactar e pedir qualquer informação aos responsáveis por este estudo, identificados abaixo:
+                </p>
+                <ul>
+                  <li>André Levi Zanon - andrezanon@usp.br</li>  
+                  <li>Luan Souza - luanssouza@usp.br</li>  
+                  <li>Diany Pressato - diany_press@usp.br</li>  
+                  <li>Prof. Dr. Marcelo Manzato - mmanzato@icmc.usp.br</li>  
+                </ul>
                 <Form.Group controlId="Accept">
-                    <Form.Check type="checkbox" label="Eu declaro que fui informada(o) dos pré-requisitos, objetivos e riscos da pesquisa acima de maneira clara e que 
+                    <Form.Check type="checkbox" label="Eu declaro que li e fui informada(o) dos pré-requisitos, objetivos e riscos da pesquisa acima de maneira clara e que 
                         concordo em participar deste estudo" 
                         value={this.state.accept_cons} onChange={this.handleChangeAcceptCons} />
                 </Form.Group>

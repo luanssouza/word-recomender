@@ -2,7 +2,7 @@
     display: grid;
     grid-row-gap: 1em;
     grid-column-gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
 }
 
 .card{
@@ -46,13 +46,11 @@
 
 .btn-like {
     align-self: center;
-    margin-bottom: 1rem;
 }
 
 .like-text {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-left: 0.5rem;
-    vertical-align: -webkit-baseline-middle;
 }
 
 .like-icon {
