@@ -22,20 +22,26 @@ export class Movies extends Component {
 
     onSearchSubmit = async (film) => {
         this.setState({process: true});
-        const response = await getMoviesByTitle(film);
-        let search = response.data.Search;
-        if (search)
-            search.forEach( f => this.state.profile_films.forEach( p => f.imdbID === p.imdbID ? f.like = true : null ));
-
-        // console.log(search)
-        this.setState({films: search, process: false})
+        try{
+            const response = await getMoviesByTitle(film);
+            let search = response.data.Search;
+            if (search)
+                search.forEach( f => this.state.profile_films.forEach( p => f.imdbID === p.imdbID ? f.like = true : null ));
+    
+            // console.log(search)
+            this.setState({films: search, process: false})
+        }
+        catch{
+            this.setState({films: null, process: false})
+        }
+        
     }
 
     onInit = async () => {
-            const response = await getMovies();
+        const response = await getMovies();
     
-            // console.log(response.data.Search)
-            this.setState({films: response.data});
+        // console.log(response.data.Search)
+        this.setState({films: response.data});
     }
 
     findFilmByImdbId = (imbd_id) => {
@@ -130,7 +136,7 @@ export class Movies extends Component {
             <div>
                 <ProfileList pro_list={this.state.profile_films} nfavs={this.state.profile_films.length} removeMovie={this.removeMovie}></ProfileList>
                 <SearchBar onSubmit={this.onSearchSubmit}/>
-                <ImageList addMovie={this.addMovie} films={this.state.films}/>
+                <ImageList addMovie={this.addMovie} onInit={this.onInit} films={this.state.films}/>
                 <Next next={this.state.next} onNext={this.handleNext}></Next>
                 { this.state.process ? <Loader></Loader> : null}
             </div>
