@@ -20,16 +20,21 @@ export class Movies extends Component {
         this.onInit();
     }
 
-    onSearchSubmit = async (film) => {
-        this.setState({process: true});
+    onSearchSubmit = async (film, year) => {
         try{
-            const response = await getMoviesByTitle(film);
+            const response = await getMoviesByTitle(film, year);
             let search = response.data.Search;
             if (search)
                 search.forEach( f => this.state.profile_films.forEach( p => f.imdbID === p.imdbID ? f.like = true : null ));
     
             // console.log(search)
-            this.setState({films: search, process: false})
+            if(search.length > 0){
+                this.setState({films: search, process: false})
+            }
+            else{
+                this.setState({films: null, process: false})
+            }
+            
         }
         catch{
             this.setState({films: null, process: false})

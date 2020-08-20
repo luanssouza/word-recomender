@@ -1,13 +1,19 @@
 .search{
     border-radius: 15px;
     height: 40px;
-    margin-left: auto;
+    margin-right: 1rem;
     text-align: center;
 }
 
 .btn-submit{
+    margin: auto;
     margin-left: 1rem;
-    margin-right: auto;
+}
+
+.search-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #search-input{
@@ -18,4 +24,11 @@
     text-align: center;
     font-size: 1.25rem;
     color: #350057;
+}
+
+.form-center{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
