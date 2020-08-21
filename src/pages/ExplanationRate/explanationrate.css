@@ -13,25 +13,36 @@
     height: 6px;
     margin: -1.5em 5px 0 6px;
     font: 1rem;
-    counter-reset: count -1;
 }
 
 .rangeWrap-rate .ticks > div {
     height: 100%;
     width: 1px;
-    counter-increment: count 1;
+    margin-bottom: 1rem;
 }
 
-.rangeWrap-rate .ticks > div:nth-child(5n - 4) {
-    height: 200%;
-}
-
-.rangeWrap-rate .ticks > div:nth-child(5n - 4)::before {
+.rangeWrap-rate .ticks > .List1::before {
     display: block;
-    content: counter(count,decimal);
+    content: "List 1";
     transform: translate(-50%, 100%);
     text-align: center;
-    width: 16px;
+    width: 50px;
+}
+
+.rangeWrap-rate .ticks > .Equal::before {
+    display: block;
+    content: "Equal";
+    transform: translate(-50%, 100%);
+    text-align: center;
+    width: 50px;
+}
+
+.rangeWrap-rate .ticks > .List2::before {
+    display: block;
+    content: "List 2";
+    transform: translate(-50%, 100%);
+    text-align: center;
+    width: 50px;
 }
 
 .quest-rate-description{
@@ -51,4 +62,63 @@
 
 .label-rate{
     font-size: 18px;
+}
+
+.rec-movies{
+    height: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    padding-top: 1rem;
+    border: 1px solid #350057;
+    margin-bottom: 1rem;
+}
+
+.rec-list{
+    height: 100%;
+    display: grid;
+    grid-row-gap: 1em;
+    grid-column-gap: 1rem;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.rec-film{
+    display: inline-block;
+    text-align: center;
+}
+
+.film-title{
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    align-self: center;
+    color: #350057;
+}
+
+.film-img{
+    height: 15rem;
+    width: 10rem;
+}
+
+.film-year{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #350057;
+}
+
+.rec-list-title{
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #350057;
 }

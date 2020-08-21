@@ -50,6 +50,14 @@
     width: 16px;
 }
 
+.rangeWrap .ticks > .Equal::before {
+    display: block;
+    content: "Equal";
+    transform: translate(-50%, 100%);
+    text-align: center;
+    width: 50px;
+}
+
 .rangeWrap .ticks > .B::before {
     display: block;
     content: "B";

@@ -97,7 +97,7 @@ export class ExplanationCompare extends Component {
                                                             <div></div>
                                                             <div></div>
                                                             <div></div>
-                                                            <div></div>
+                                                            <div className="Equal"></div>
                                                             <div></div>
                                                             <div></div>
                                                             <div></div>
@@ -122,7 +122,7 @@ export class ExplanationCompare extends Component {
                                                             <div></div>
                                                             <div></div>
                                                             <div></div>
-                                                            <div></div>
+                                                            <div className="Equal"></div>
                                                             <div></div>
                                                             <div></div>
                                                             <div></div>
@@ -147,7 +147,7 @@ export class ExplanationCompare extends Component {
                                                             <div></div>
                                                             <div></div>
                                                             <div></div>
-                                                            <div></div>
+                                                            <div className="Equal"></div>
                                                             <div></div>
                                                             <div></div>
                                                             <div></div>
