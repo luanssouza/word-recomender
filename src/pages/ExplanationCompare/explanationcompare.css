@@ -70,13 +70,14 @@
 }
 
 .row{
-    padding: 0;
+    padding-top: 1rem;
     border-bottom: none;
 }
 
 .range-row{
     width: 100%;
     padding-bottom: 2rem;
+    padding-top: 0;
 }
 
 .just-A::before {
@@ -177,8 +178,29 @@
     color: #350057;
 }
 
+.just-film-title{
+    font-size: 1.3rem;
+    text-align: center;
+    color: #350057;
+}
+
+.just-compare{
+    width: 100%;
+    height: 100%;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #350057;
+}
+
 .just-rate {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
     text-align: center;
+}
+
+.row-compare{
+    margin-right: 1rem;
+    margin-left: 1rem;
 }

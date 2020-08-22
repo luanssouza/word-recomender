@@ -68,23 +68,23 @@ export class ExplanationCompare extends Component {
                     {
                         this.state.movies.map( (movie, index) => (
                             <div className="just-movies">
-                                <h1 className="just-list-title">Recommendation List 1</h1> 
+                                <h1 className="just-list-title">Recommendation {index + 1}</h1> 
                                 <hr/>
                                 <div>
-                                    <Row>
-                                        <Col className="just" sm={12} md={4} xl={5}>
-                                            <h2 className="film-title">Justification A:</h2>
+                                    <Row className="row-compare">
+                                        <Col className="just" sm={12} md={4} xl={4}>
+                                            <h2 className="just-film-title">Justification A:</h2>
                                             <p className="just-compare"> { movie.justA } </p>
                                         </Col>
-                                        <Col className="img-col" sm={12} md={4} xl={2}>
+                                        <Col className="img-col" sm={12} md={4} xl={4}>
                                             <div className="just-film">
-                                                <h1 className="film-title">Anger Management</h1>
-                                                <img className="film-img" src={movie.poster} alt={"Poster of the film " + movie.title + " from the year " + movie.year} />
+                                                <h1 className="just-film-title">{movie.title}</h1>
+                                                <img className="just-film-img" src={movie.poster} alt={"Poster of the film " + movie.title + " from the year " + movie.year} />
                                                 <p className="film-year">Year: 2003</p>
                                             </div>
                                         </Col>
-                                        <Col className="just" sm={12} md={4} xl={5}>
-                                            <h2 className="film-title">Justification B:</h2>
+                                        <Col className="just" sm={12} md={4} xl={4}>
+                                            <h2 className="just-film-title">Justification B:</h2>
                                             <p className="just-compare"> { movie.justB } </p>
                                         </Col>
                                     </Row>

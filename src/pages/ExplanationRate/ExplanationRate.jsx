@@ -112,7 +112,7 @@ export class ExplanationRate extends Component {
 
                 <Row>
                     <Col xs={12} md={6}>
-                        <Row className="range-row mt-1">
+                        <Row className="range-row">
                             <Col lg={12}>
                                 <Form.Group controlId="quality">
                                     {/* Quality */}
