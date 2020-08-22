@@ -189,11 +189,11 @@ export class ExplanationRate extends Component {
                     </Col>
                     <Col xs={12} md={6}>
                         <Form.Group controlId="reclist1">
-                            <Form.Label>Comments on Recommendarion List 1:</Form.Label>
+                            <Form.Label className="label-rate">Comments on Recommendarion List 1:</Form.Label>
                             <Form.Control as="textarea" rows="3" value={this.state.reclist1} onChange={(e) => this.handleChangeRecLis1(e)} />
                         </Form.Group>
                         <Form.Group controlId="reclist2">
-                            <Form.Label>Comments on Recommendarion List 2:</Form.Label>
+                            <Form.Label className="label-rate">Comments on Recommendarion List 2:</Form.Label>
                             <Form.Control as="textarea" rows="3" value={this.state.reclist2} onChange={(e) => this.handleChangeRecLis2(e)} />
                         </Form.Group>
                     </Col>

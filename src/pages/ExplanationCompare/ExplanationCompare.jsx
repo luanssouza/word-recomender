@@ -173,7 +173,7 @@ export class ExplanationCompare extends Component {
                                             <Form.Control as="textarea" rows="4" value={movie.commentrec} onChange={ (e)=> this.handleChangeRecComments(e, index)} />
                                         </Form.Group>
                                         <Form.Group controlId="commentjust">
-                                            <Form.Label className="label-compare">Comments on the Justification:</Form.Label>
+                                            <Form.Label className="label-compare">Comments on the Justifications:</Form.Label>
                                             <Form.Control as="textarea" rows="4" value={movie.commentjust} onChange={ (e)=> this.handleChangeJusComments(e, index)} />
                                         </Form.Group>
                                     </Col>
