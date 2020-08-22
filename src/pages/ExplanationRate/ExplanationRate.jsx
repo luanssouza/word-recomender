@@ -11,8 +11,20 @@ export class ExplanationRate extends Component {
 
         let rec = this.props.recommendations.recommendations;
         let semantic = rec.semantic;
+        let reclist1_id = rec.reclist1_id;
         let baseline = rec.baseline;
-        this.state = { semantic: semantic, baseline: baseline, quality: 5,diversity: 5,serendipity: 5, reclist1: "", reclist2: ""};
+        let reclist2_id = rec.reclist2_id;
+        this.state = { 
+            semantic: semantic,
+            baseline: baseline,
+            quality: 5,
+            diversity: 5,
+            serendipity: 5,
+            reclist1: "", 
+            reclist2: "",
+            reclist1_id: reclist1_id,
+            reclist2_id: reclist2_id
+        };
     }
 
     componentDidMount() {
@@ -42,13 +54,21 @@ export class ExplanationRate extends Component {
     handlerNext = async (event) => {
         event.preventDefault();
 
+        let quality = this.state.quality; 
+        let diversity = this.state.diversity; 
+        let serendipity = this.state.serendipity; 
+        let reclist1 = this.state.reclist1; 
+        let reclist2 = this.state.reclist2; 
+        let reclist1_id = this.state.reclist1_id; 
+        let reclist2_id = this.state.reclist2_id;
+
         let body = {
             user_id: this.props.user.user.id,
-            rates: this.state.movies
+            rates: { quality, diversity, serendipity, reclist1, reclist2, reclist1_id, reclist2_id }
         }
 
         await postRate(body);
-        let explanations = await getExplanations({user_id: body.user_id, movies: this.state.movies});
+        let explanations = await getExplanations({user_id: body.user_id, movies: this.state.semantic});
         this.props.onSubmitExplanations(explanations.data);
 
         this.props.history.push('/explanationCompare');
