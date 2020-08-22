@@ -48,6 +48,7 @@
     transform: translate(-50%, 100%);
     text-align: center;
     width: 16px;
+    font-size: 0.9rem;
 }
 
 .rangeWrap .ticks > .Equal::before {
@@ -56,6 +57,7 @@
     transform: translate(-50%, 100%);
     text-align: center;
     width: 50px;
+    font-size: 0.9rem;
 }
 
 .rangeWrap .ticks > .B::before {
@@ -64,6 +66,7 @@
     transform: translate(-50%, 100%);
     text-align: center;
     width: 16px;
+    font-size: 0.9rem;
 }
 
 .row{
@@ -99,5 +102,83 @@
 }
 
 .label-compare{
-    font-size: 18px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.just-movies{
+    height: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 1px solid #350057;
+    margin-bottom: 1rem;
+}
+
+.just-list{
+    height: 100%;
+    display: grid;
+    grid-row-gap: 1em;
+    grid-column-gap: 1rem;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.just-film{
+    display: inline-block;
+    text-align: center;
+}
+
+.film-title{
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    align-self: center;
+    color: #350057;
+}
+
+.just-compare{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    align-self: center;
+    color: #350057;
+}
+
+.film-img{
+    height: 15rem;
+    width: 10rem;
+}
+
+.film-year{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #350057;
+}
+
+.just-list-title{
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #350057;
+}
+
+.just-rate {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
 }

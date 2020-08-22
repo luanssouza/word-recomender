@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Jumbotron, Form, Button, Row, Col, Image } from 'react-bootstrap';
+import { Form, Button, Row, Col} from 'react-bootstrap';
 import './explanationcompare.css';
 import { connect } from 'react-redux';
 import { postCompare } from '../../services/MovieService';
@@ -67,22 +67,30 @@ export class ExplanationCompare extends Component {
                 <div>
                     {
                         this.state.movies.map( (movie, index) => (
-                            <Jumbotron key={index}>
-                                <Row className="display-row"> 
-                                    <Col className="just" xs={12} md={4}>
-                                        <h2 className="justification-title">Justification A:</h2>
-                                        <p className="justification-compare"> { movie.justA } </p>
-                                    </Col>
-                                    <Col className="img-col" xs={12} md={4}>
-                                        <h2><b> { movie.title } </b></h2>
-                                        <Image src={movie.poster} className="rec-movie" width="192px"/>
-                                    </Col>
-                                    <Col className="just" xs={12} md={4}>
-                                        <h2 className="justification-title">Justification B:</h2>
-                                        <p className="justification-compare"> { movie.justB } </p>
-                                    </Col>
-                                </Row>
-                                <Row>
+                            <div className="just-movies">
+                                <h1 className="just-list-title">Recommendation List 1</h1> 
+                                <hr/>
+                                <div>
+                                    <Row>
+                                        <Col className="just" sm={12} md={4} xl={5}>
+                                            <h2 className="film-title">Justification A:</h2>
+                                            <p className="just-compare"> { movie.justA } </p>
+                                        </Col>
+                                        <Col className="img-col" sm={12} md={4} xl={2}>
+                                            <div className="just-film">
+                                                <h1 className="film-title">Anger Management</h1>
+                                                <img className="film-img" src={movie.poster} alt={"Poster of the film " + movie.title + " from the year " + movie.year} />
+                                                <p className="film-year">Year: 2003</p>
+                                            </div>
+                                        </Col>
+                                        <Col className="just" sm={12} md={4} xl={5}>
+                                            <h2 className="film-title">Justification B:</h2>
+                                            <p className="just-compare"> { movie.justB } </p>
+                                        </Col>
+                                    </Row>
+                                </div>
+                                <hr/>
+                                <Row className="just-rate">
                                     <Col xs={12} md={6}>
                                         <Row className="range-row">
                                             <Col lg={12}>
@@ -140,7 +148,7 @@ export class ExplanationCompare extends Component {
                                                     {/* Engagement */}
                                                     <Form.Label className="label-compare">Which justification made you discover new information about the movie?</Form.Label>
                                                     <div className='rangeWrap'>
-                                                        <input type="range" min="0" max="10" value={movie.discover} onChange={ (e)=> this.handleChangeEngag(e, index)}  />
+                                                        <input type="range" min="0" max="10" value={movie.discover} onChange={ (e)=> this.handleChangeEngag(e, index)} />
                                                         <div className='ticks'>
                                                             <div className="A"></div>
                                                             <div></div>
@@ -161,16 +169,16 @@ export class ExplanationCompare extends Component {
                                     </Col>
                                     <Col xs={12} md={6}>
                                         <Form.Group controlId="commentrec">
-                                            <Form.Label>Comments on the Recommendation:</Form.Label>
+                                            <Form.Label className="label-compare">Comments on the Recommendation:</Form.Label>
                                             <Form.Control as="textarea" rows="4" value={movie.commentrec} onChange={ (e)=> this.handleChangeRecComments(e, index)} />
                                         </Form.Group>
                                         <Form.Group controlId="commentjust">
-                                            <Form.Label>Comments on the Justification:</Form.Label>
+                                            <Form.Label className="label-compare">Comments on the Justification:</Form.Label>
                                             <Form.Control as="textarea" rows="4" value={movie.commentjust} onChange={ (e)=> this.handleChangeJusComments(e, index)} />
                                         </Form.Group>
                                     </Col>
                                 </Row>
-                            </Jumbotron>
+                            </div>
                         ))
                     }
                     <Button variant="primary" className="float-md-right" onClick={this.handlerFinish}>Finish</Button>
