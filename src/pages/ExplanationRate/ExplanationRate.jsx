@@ -10,7 +10,9 @@ export class ExplanationRate extends Component {
         super(props);
 
         let rec = this.props.recommendations.recommendations;
-        this.state = { movies: rec, quality: 5,diversity: 5,serendipity: 5, reclist1: "", reclist2: ""};
+        let semantic = rec.semantic;
+        let baseline = rec.baseline;
+        this.state = { semantic: semantic, baseline: baseline, quality: 5,diversity: 5,serendipity: 5, reclist1: "", reclist2: ""};
     }
 
     componentDidMount() {
@@ -61,7 +63,7 @@ export class ExplanationRate extends Component {
                     <hr></hr>
                     <div className="rec-list">
                     {
-                        this.state.movies.map((movie, index) => (
+                        this.state.semantic.map((movie, index) => (
                             <div  key={index} className="rec-film">
                                 <h1 className="film-title">{movie.title}</h1>
                                 <img className="film-img" src={movie.poster} alt={"Poster of the film " + movie.title + " from the year " + movie.year} />
@@ -77,7 +79,7 @@ export class ExplanationRate extends Component {
                     <hr></hr>
                     <div className="rec-list">
                     {
-                        this.state.movies.map((movie, index) => (
+                        this.state.baseline.map((movie, index) => (
                             <div  key={index} className="rec-film">
                                 <h1 className="film-title">{movie.title}</h1>
                                 <img className="film-img" src={movie.poster} alt={"Poster of the film " + movie.title + " from the year " + movie.year} />
