@@ -8,6 +8,7 @@ import Movies from '../pages/Movies/Movies';
 import ExplanationRate from '../pages/ExplanationRate/ExplanationRate';
 import ExplanationCompare from '../pages/ExplanationCompare/ExplanationCompare';
 import Final from '../pages/Final/Final';
+import Error from '../pages/Error/Error';
 import { connect } from 'react-redux';
 
 export class Content extends Component {
@@ -28,6 +29,7 @@ export class Content extends Component {
                     <Route exact path="/explanationRate" render={(routeProps) => this.isUser(ExplanationRate, routeProps)}/>
                     <Route exact path="/explanationCompare" render={(routeProps) => this.isUser(ExplanationCompare, routeProps)}/>
                     <Route exact path="/final" render={(routeProps) => this.isUser(Final, routeProps)}/>
+                    <Route exact path="/error" render={(routeProps) => this.isUser(Error, routeProps)}/>
                 </Switch>
             </Container>
         )

@@ -32,15 +32,20 @@ export class UserForm extends Component {
     }
 
     handleSubmit = async (event) => {
-        event.preventDefault();
+        try{
+            event.preventDefault();
 
-        let { data } = await insertUser(this.state);
-
-        this.setState({ id: data });
-
-        this.props.onSubmitUser(this.state);
-
-        this.props.history.push('/movies');
+            let { data } = await insertUser(this.state);
+    
+            this.setState({ id: data });
+    
+            this.props.onSubmitUser(this.state);
+    
+            this.props.history.push('/movies');
+        }
+        catch{
+            this.props.history.push('/error');
+        }
     }
 
     render() {

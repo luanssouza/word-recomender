@@ -49,15 +49,20 @@ export class ExplanationCompare extends Component {
     }
 
     handlerFinish = async (event) => {
-        let body = {
-            user_id: this.props.user.user.id,
-            compares: this.state.movies
+        try{
+            let body = {
+                user_id: this.props.user.user.id,
+                compares: this.state.movies
+            }
+    
+            await postCompare(body);
+    
+            event.preventDefault();
+            this.props.history.push('/final');
         }
-
-        await postCompare(body);
-
-        event.preventDefault();
-        this.props.history.push('/final');
+        catch{
+            this.props.history.push('/error');
+        }
     }
 
     render() {

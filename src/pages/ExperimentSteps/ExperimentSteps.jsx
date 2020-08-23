@@ -26,7 +26,7 @@ export class ExperimentSteps extends Component {
                 <hr></hr>
                 <h2 className="sub-title">Etapas do experimento e Pré-Requisitos</h2>
                 <p className="text-desc">
-                    Você sabe o por quê de um determinado produto ter sido recomendado a você em um site de compras online? Ou então, o por quê de um certo filme ter 
+                    Você sabe o por quê de um determinado produto ter sido recomendado para você em um site de compras online? Ou então, o por quê de um certo filme ter 
                     sido sugerido a você no Netflix? Nem sempre ficamos sabendo a razão de uma recomendação nos ter sido feita – nem sempre a recomendação que nos feita 
                     é completamente transparente.
                 </p>    

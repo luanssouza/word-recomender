@@ -117,23 +117,29 @@ export class Movies extends Component {
     }
 
     handleNext = async (event) => {
-        this.setState({process: true});
+        try{
+            this.setState({process: true});
 
-        let body = {
-            user_id: this.props.user.user.id,
-            movies: this.state.profile_films.map( x => x.imdbID)
+            let body = {
+                user_id: this.props.user.user.id,
+                movies: this.state.profile_films.map( x => x.imdbID)
+            }
+
+            this.setState({ next: true });
+
+            let recommendations = await getRecommendation(body);
+
+            this.props.onSubmitMovies(body.movies);
+            this.props.onSubmitRecommendation(recommendations.data);
+
+            this.setState({process: false});
+
+            this.props.history.push('/explanationRate');
         }
-
-        this.setState({ next: true });
-
-        let recommendations = await getRecommendation(body);
-
-        this.props.onSubmitMovies(body.movies);
-        this.props.onSubmitRecommendation(recommendations.data);
-
-        this.setState({process: false});
-
-        this.props.history.push('/explanationRate');
+        catch{
+            this.props.history.push('/error');
+        }
+        
     }
 
     render() {

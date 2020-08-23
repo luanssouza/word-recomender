@@ -4,13 +4,14 @@ import './loader.css';
 function Loader() {
   return (
     <div>
-        <div className="overlay-loader show"></div>
+      <div className="overlay-loader show">
         <div className="spanner show">
           <div className="center-loader">
             <div className="loader"></div>
-            Processing..
+            Processing...
           </div>
         </div>
+      </div>  
     </div>
   );
 }

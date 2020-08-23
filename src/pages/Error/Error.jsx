@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
-import './final.css';
+import './error.css';
 
-export class Final extends Component {
+export class Error extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -12,12 +12,12 @@ export class Final extends Component {
 
     render() {
         return (
-            <div className="finish">
-                <h1 className="thank-you">Thank you for participating in our survey!</h1>
+            <div className="error">
+                <h1 className="sorry">Sorry, something went wrong with our servers. Please restart the experiment.</h1>
                 <Button variant="primary" onClick={this.handleSubmit}>Restart</Button>
             </div>
         )
     }
 }
 
-export default Final
+export default Error
