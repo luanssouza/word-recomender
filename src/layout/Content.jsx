@@ -29,7 +29,7 @@ export class Content extends Component {
                     <Route exact path="/explanationRate" render={(routeProps) => this.isUser(ExplanationRate, routeProps)}/>
                     <Route exact path="/explanationCompare" render={(routeProps) => this.isUser(ExplanationCompare, routeProps)}/>
                     <Route exact path="/final" render={(routeProps) => this.isUser(Final, routeProps)}/>
-                    <Route exact path="/error" render={(routeProps) => this.isUser(Error, routeProps)}/>
+                    <Route component={Error}/>
                 </Switch>
             </Container>
         )
