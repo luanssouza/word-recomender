@@ -4,7 +4,7 @@ import ImageList from '../../components/ImageList';
 import ProfileList from '../../components/ProfileList';
 import Next from '../../components/Next';
 import { connect } from 'react-redux';
-import { getMoviesByTitle, getMovies, getRecommendation } from '../../services/MovieService';
+import { getMoviesByTitle, getMovies, getRecommendation, getBaseline } from '../../services/MovieService';
 import { ADD_MOVIES, ADD_RECOMMENDATION } from '../../store/actions/actionsConst';
 import Loader from '../../components/loader/Loader';
 
@@ -128,9 +128,13 @@ export class Movies extends Component {
             this.setState({ next: true });
 
             let recommendations = await getRecommendation(body);
+            let baseline = await getBaseline(body);
+
+            recommendations = { ...recommendations.data, ...baseline.data };
+            console.log(recommendations)
 
             this.props.onSubmitMovies(body.movies);
-            this.props.onSubmitRecommendation(recommendations.data);
+            this.props.onSubmitRecommendation(recommendations);
 
             this.setState({process: false});
 
