@@ -80,7 +80,7 @@
 
 .rec-list{
     height: 100%;
-    display: grid;
+    display: block;
     grid-row-gap: 1em;
     grid-column-gap: 1rem;
     grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
@@ -91,12 +91,14 @@
 .rec-film{
     display: inline-block;
     text-align: center;
+    width: 100%;
 }
 
 .film-title{
-    height: 3.5rem;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     font-size: 1rem;
@@ -106,8 +108,8 @@
 }
 
 .film-img{
-    height: 15rem;
-    width: 10rem;
+    height: 10rem;
+    width: 7rem;
 }
 
 .film-year{
@@ -120,8 +122,41 @@
 }
 
 .rec-list-title{
-    font-size: 1.3rem;
+    font-size: 1.0rem;
     font-weight: bold;
     text-align: center;
     color: #350057;
+}
+
+.rate-form{
+    height: 100%;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.quest-tile{
+    padding-top: 1rem;
+    display: block;
+    margin-bottom: 1rem;
+    margin-bottom: 7rem;
+}
+
+.quest-list-title{
+    font-size: 1.0rem;
+    font-weight: bold;
+    text-align: center;
+    color: #350057;
+    margin-bottom: 1.5rem;
+}
+
+.rate-range-row{
+    height: 100%;
+}
+
+.btn-center{
+    margin-top: 1rem;
+    width: 100%;
+    height: 100%;
 }

@@ -83,128 +83,128 @@ export class ExplanationRate extends Component {
         return (
             <div>
                 <h1 className="quest-rate-description"> Please answer the following sentences honestly considering the scale</h1>
-                <div className="rec-movies">
-                    <h1 className="rec-list-title">Recommendation List 1</h1> 
-                    <hr></hr>
-                    <div className="rec-list">
-                    {
-                        this.state.semantic.map((movie, index) => (
-                            <div  key={index} className="rec-film">
-                                <h1 className="film-title">{movie.title}</h1>
-                                <img className="film-img" src={movie.poster} alt={"Poster of the film " + movie.title + " from the year " + movie.year} />
-                                <p className="film-year">Year: {movie.year}</p>
-                            </div>
-                        ))
-                    }
-                    </div>
-                </div>
-
-                <div className="rec-movies">
-                    <h1 className="rec-list-title">Recommendation List 2</h1> 
-                    <hr></hr>
-                    <div className="rec-list">
-                    {
-                        this.state.baseline.map((movie, index) => (
-                            <div  key={index} className="rec-film">
-                                <h1 className="film-title">{movie.title}</h1>
-                                <img className="film-img" src={movie.poster} alt={"Poster of the film " + movie.title + " from the year " + movie.year} />
-                                <p className="film-year">Year: {movie.year}</p>
-                            </div>
-                        ))
-                    }
-                    </div>
-                </div>
-
                 <Row>
-                    <Col xs={12} md={6}>
-                        <Row className="range-row">
-                            <Col lg={12}>
-                                <Form.Group controlId="quality">
-                                    {/* Quality */}
-                                    <Form.Label className="label-rate">Which recommendation list do you like the most?</Form.Label>
-                                    <div className='rangeWrap-rate'>
-                                        <input type="range" min="0" max="10" value={this.state.quality} onChange={(e) => this.handleChangeQuality(e)} />
-                                        <div className='ticks'>
-                                            <div className="List1"></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div className="Equal"></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div className="List2"></div>
-                                        </div>
+                    <Col xl={4}>
+                        <div className="rec-movies">
+                            <h1 className="rec-list-title">Recommendation List 1</h1> 
+                            <div className="rec-list">
+                            {
+                                this.state.semantic.map((movie, index) => (
+                                    <div  key={index} className="rec-film">
+                                        <hr></hr>
+                                        <h1 className="film-title">{movie.title}</h1>
+                                        <img className="film-img" src={movie.poster} alt={"Poster of the film " + movie.title + " from the year " + movie.year} />
+                                        <p className="film-year">Year: {movie.year}</p>
                                     </div>
-                                </Form.Group>
-                            </Col>
-                        </Row>
-
-                        <Row className="range-row">
-                            <Col lg={12}>
-                                <Form.Group controlId="diversity">
-                                    {/* Diversity */}
-                                    <Form.Label className="label-rate">Which list has more variety of movies?</Form.Label>
-                                    <div className='rangeWrap-rate'>
-                                        <input type="range" min="0" max="10" value={this.state.diversity} onChange={(e) => this.handleChangeDiversity(e)} />
-                                        <div className='ticks'>
-                                            <div className="List1"></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div className="Equal"></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div className="List2"></div>
-                                        </div>
-                                    </div>
-                                </Form.Group>
-                            </Col>
-                        </Row>
-
-                        <Row className="range-row">
-                            <Col lg={12}>
-                                <Form.Group controlId="serendipity">
-                                    {/* Choose of words */}
-                                    <Form.Label className="label-rate">Which list has more surpising recommendations?</Form.Label>
-                                    <div className='rangeWrap-rate'>
-                                        <input type="range" min="0" max="10" value={this.state.serendipity} onChange={(e) => this.handleChangeSerendipity(e)} />
-                                        <div className='ticks'>
-                                            <div className="List1"></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div className="Equal"></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div className="List2"></div>
-                                        </div>
-                                    </div>
-                                </Form.Group>
-                            </Col>
-                        </Row>
+                                    
+                                ))
+                            }
+                            </div>
+                        </div>
                     </Col>
-                    <Col xs={12} md={6}>
-                        <Form.Group controlId="reclist1">
-                            <Form.Label className="label-rate">Comments on Recommendarion List 1:</Form.Label>
-                            <Form.Control as="textarea" rows="3" value={this.state.reclist1} onChange={(e) => this.handleChangeRecLis1(e)} />
-                        </Form.Group>
-                        <Form.Group controlId="reclist2">
-                            <Form.Label className="label-rate">Comments on Recommendarion List 2:</Form.Label>
-                            <Form.Control as="textarea" rows="3" value={this.state.reclist2} onChange={(e) => this.handleChangeRecLis2(e)} />
-                        </Form.Group>
+
+                    <Col className="quest-tile" xl={4}>
+                        <h1 className="quest-list-title">Questionaire</h1>
+                        <hr></hr>
+                        <div className="rate-form" > 
+                            <Form.Group className="rate-range-row" controlId="quality">
+                                {/* Quality */}
+                                <Form.Label className="label-rate">Which recommendation list do you like the most?</Form.Label>
+                                <div className='rangeWrap-rate'>
+                                    <input type="range" min="0" max="10" value={this.state.quality} onChange={(e) => this.handleChangeQuality(e)} />
+                                    <div className='ticks'>
+                                        <div className="List1"></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div className="Equal"></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div className="List2"></div>
+                                    </div>
+                                </div>
+                            </Form.Group>
+
+                            <Form.Group className="rate-range-row" controlId="diversity">
+                                {/* Diversity */}
+                                <Form.Label className="label-rate">Which list has more variety of movies?</Form.Label>
+                                <div className='rangeWrap-rate'>
+                                    <input type="range" min="0" max="10" value={this.state.diversity} onChange={(e) => this.handleChangeDiversity(e)} />
+                                    <div className='ticks'>
+                                        <div className="List1"></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div className="Equal"></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div className="List2"></div>
+                                    </div>
+                                </div>
+                            </Form.Group>
+
+                            <Form.Group className="rate-range-row" controlId="serendipity">
+                                {/* Choose of words */}
+                                <Form.Label className="label-rate">Which list has more surpising recommendations?</Form.Label>
+                                <div className='rangeWrap-rate'>
+                                    <input type="range" min="0" max="10" value={this.state.serendipity} onChange={(e) => this.handleChangeSerendipity(e)} />
+                                    <div className='ticks'>
+                                        <div className="List1"></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div className="Equal"></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div className="List2"></div>
+                                    </div>
+                                </div>
+                            </Form.Group>
+
+                            <Form.Group className="rate-range-row" controlId="reclist1">
+                                <Form.Label className="label-rate">Comments on Recommendarion List 1:</Form.Label>
+                                <Form.Control as="textarea" rows="3" value={this.state.reclist1} onChange={(e) => this.handleChangeRecLis1(e)} />
+                            </Form.Group>
+                                
+                            <Form.Group className="rate-range-row" controlId="reclist2">
+                                <Form.Label className="label-rate">Comments on Recommendarion List 2:</Form.Label>
+                                <Form.Control as="textarea" rows="3" value={this.state.reclist2} onChange={(e) => this.handleChangeRecLis2(e)} />
+                            </Form.Group>
+                        </div>
+                    </Col>
+                
+                    <Col xl={4}>
+                        <div className="rec-movies">
+                            <h1 className="rec-list-title">Recommendation List 2</h1> 
+                            <div className="rec-list">
+                            {
+                                this.state.baseline.map((movie, index) => (
+                                    <div  key={index} className="rec-film">
+                                        <hr></hr>
+                                        <h1 className="film-title">{movie.title}</h1>
+                                        <img className="film-img" src={movie.poster} alt={"Poster of the film " + movie.title + " from the year " + movie.year} />
+                                        <p className="film-year">Year: {movie.year}</p>
+                                    </div>
+                                ))
+                            }
+                            </div>
+                        </div>
                     </Col>
                 </Row>
-
-                <Button variant="primary" className="float-md-right" onClick={this.handlerNext}>Next</Button>
+                
+                <div className="btn-center">
+                    <Button variant="primary" className="float-md-right" onClick={this.handlerNext}>Next</Button>
+                </div>
+                
             </div>
         )
     }
