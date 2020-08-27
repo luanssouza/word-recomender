@@ -44,7 +44,7 @@ export class ExplanationRate extends Component {
     }
 
     handleChangeRecLis1 = (event) => {
-        this.setState({ reclist2: event.target.value  });
+        this.setState({ reclist1: event.target.value  });
     }
 
     handleChangeRecLis2 = (event) => {
