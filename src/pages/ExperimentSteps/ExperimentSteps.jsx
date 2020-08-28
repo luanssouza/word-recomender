@@ -38,10 +38,11 @@ export class ExperimentSteps extends Component {
                     O procedimento de coleta de dados acontecerá da seguinte forma: será inicialmente requerido para que sejam completados alguns dados e, em seguida, 
                     você irá pesquisar e avaliar filmes de sua preferência. Posteriormente, será gerada uma recomendação com várias explicações para a mesma. 
                     Por meio de um questionário, você nos dirá qual a justificativa de sua preferência, encerrando o experimento.
+                    Todos os campos de comentários são opcionais e podem ser preenchidos em português.
                 </p>
                 <p className="text-desc">
                     Como pré-requesito para participação é necessário um conhecimento básico de inglês já que os dados utilizados para geração das explicações estão nesta linguagem e
-                    uma tradução desses textos podem fazer com que os significados das palavras mudem ou não façam sentido.
+                    uma tradução desses textos pode fazer com que os significados das palavras mudem ou não façam sentido.
                 </p>
                 <hr></hr>
                 <h2 className="sub-title">Termo de Consentimento</h2>
