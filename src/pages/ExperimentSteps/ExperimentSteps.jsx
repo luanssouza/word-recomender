@@ -26,8 +26,8 @@ export class ExperimentSteps extends Component {
                 <hr></hr>
                 <h2 className="sub-title">Etapas do Experimento e Pré-Requisitos</h2>
                 <p className="text-desc">
-                    Você sabe o por quê de um determinado produto ter sido recomendado para você em um site de compras online? Ou então, o por quê de um certo filme ter 
-                    sido sugerido a você no Netflix? Nem sempre ficamos sabendo a razão de uma recomendação nos ter sido feita – nem sempre a recomendação que nos feita 
+                    Você sabe o porquê de um determinado produto ter sido recomendado para você em um site de compras online? Ou então, o porquê de um certo filme ter 
+                    sido sugerido a você no Netflix? Nem sempre ficamos sabendo a razão de uma recomendação nos ter sido feita – nem sempre a recomendação que nos é feita 
                     é completamente transparente.
                 </p>    
                 <p className="text-desc">
@@ -41,13 +41,13 @@ export class ExperimentSteps extends Component {
                     Todos os campos de comentários são opcionais e podem ser preenchidos em português.
                 </p>
                 <p className="text-desc">
-                    Como pré-requesito para participação é necessário um conhecimento básico de inglês já que os dados utilizados para geração das explicações estão nesta linguagem e
+                    Como pré-requisito para participação é necessário um conhecimento básico de inglês já que os dados utilizados para geração das explicações estão nesta linguagem e
                     uma tradução desses textos pode fazer com que os significados das palavras mudem ou não façam sentido.
                 </p>
                 <hr></hr>
                 <h2 className="sub-title">Termo de Consentimento</h2>
                 <p className="text-desc">
-                    O objetivo desse trabalho é criar um novo algoritmo de explicação, que considera a proximidade de significado entre palavras para gerar uma sugestão e
+                    O objetivo deste trabalho é criar um novo algoritmo de explicação, que considera a proximidade de significado entre palavras para gerar uma sugestão e
                     uma justificativa.
                 </p>
                 <p className="text-desc">

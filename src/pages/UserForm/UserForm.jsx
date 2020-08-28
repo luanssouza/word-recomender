@@ -79,7 +79,7 @@ export class UserForm extends Component {
                     </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="usedRecSys">
-                    <Form.Label>Have ever you used another recommender systems? (Such as Amazon and Netflix)</Form.Label>
+                    <Form.Label>Have you ever used another recommender systems? (Such as Amazon and Netflix)</Form.Label>
                     <Form.Control as="select" value={this.state.usedRecSys} onChange={this.handleChangeRecsys}>
                         <option value="0">No</option>
                         <option value="1">Yes</option>

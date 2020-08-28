@@ -151,7 +151,7 @@ export class ExplanationRate extends Component {
 
                             <Form.Group className="rate-range-row" controlId="serendipity">
                                 {/* Choose of words */}
-                                <Form.Label className="label-rate">Which list has more surpising recommendations?</Form.Label>
+                                <Form.Label className="label-rate">Which list has more surprising recommendations?</Form.Label>
                                 <div className='rangeWrap-rate'>
                                     <input type="range" min="0" max="10" value={this.state.serendipity} onChange={(e) => this.handleChangeSerendipity(e)} />
                                     <div className='ticks'>
