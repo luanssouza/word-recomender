@@ -131,7 +131,7 @@ export class Movies extends Component {
             let baseline = await getBaseline(body);
 
             recommendations = { ...recommendations.data, ...baseline.data };
-            console.log(recommendations)
+            // console.log(recommendations)
 
             this.props.onSubmitMovies(body.movies);
             this.props.onSubmitRecommendation(recommendations);

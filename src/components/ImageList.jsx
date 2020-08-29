@@ -36,7 +36,7 @@ const ImageList = (props) => {
     catch(e){
         return  <div className="error">
                     <p>No film was found on search :(</p>
-                    <p>Search for another movie from 2000 until 2016</p>
+                    <p>Search for another movie from 2000 until 2011</p>
                     <button type="button" className="btn btn-lg btn-primary btn-like" onClick={() => props.onInit()}>
                         SEE SOME POPULAR MOVIES
                     </button>
