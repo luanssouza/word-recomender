@@ -4,6 +4,7 @@ import './explanationrate.css';
 import { connect } from 'react-redux';
 import { ADD_EXPLANATIONS } from '../../store/actions/actionsConst';
 import { postRate, getExplanations } from '../../services/MovieService';
+import Loader from '../../components/loader/Loader';
 
 export class ExplanationRate extends Component {
     constructor(props) {
@@ -23,7 +24,8 @@ export class ExplanationRate extends Component {
             reclist1: "", 
             reclist2: "",
             reclist1_id: reclist1_id,
-            reclist2_id: reclist2_id
+            reclist2_id: reclist2_id,
+            process: false
         };
     }
 
@@ -54,6 +56,7 @@ export class ExplanationRate extends Component {
     handlerNext = async (event) => {
         try{
             event.preventDefault();
+            this.setState({process: true});
 
             let quality = this.state.quality; 
             let diversity = this.state.diversity; 
@@ -71,6 +74,8 @@ export class ExplanationRate extends Component {
             await postRate(body);
             let explanations = await getExplanations({user_id: body.user_id, movies: this.state.semantic});
             this.props.onSubmitExplanations(explanations.data);
+
+            this.setState({process: false});
 
             this.props.history.push('/explanationCompare');
         }
@@ -171,12 +176,12 @@ export class ExplanationRate extends Component {
                             </Form.Group>
 
                             <Form.Group className="rate-range-row" controlId="reclist1">
-                                <Form.Label className="label-rate">Comments on Recommendarion List 1:</Form.Label>
+                                <Form.Label className="label-rate">Comments on Recommendation List 1:</Form.Label>
                                 <Form.Control as="textarea" rows="3" value={this.state.reclist1} onChange={(e) => this.handleChangeRecLis1(e)} />
                             </Form.Group>
                                 
                             <Form.Group className="rate-range-row" controlId="reclist2">
-                                <Form.Label className="label-rate">Comments on Recommendarion List 2:</Form.Label>
+                                <Form.Label className="label-rate">Comments on Recommendation List 2:</Form.Label>
                                 <Form.Control as="textarea" rows="3" value={this.state.reclist2} onChange={(e) => this.handleChangeRecLis2(e)} />
                             </Form.Group>
                         </div>
@@ -204,7 +209,7 @@ export class ExplanationRate extends Component {
                 <div className="btn-center">
                     <Button variant="primary" className="float-md-right" onClick={this.handlerNext}>Next</Button>
                 </div>
-                
+                { this.state.process ? <Loader></Loader> : null}
             </div>
         )
     }

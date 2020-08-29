@@ -3,6 +3,7 @@ import { Form, Button, Row, Col} from 'react-bootstrap';
 import './explanationcompare.css';
 import { connect } from 'react-redux';
 import { postCompare } from '../../services/MovieService';
+import Loader from '../../components/loader/Loader';
 
 export class ExplanationCompare extends Component {
     constructor(props) {
@@ -50,14 +51,19 @@ export class ExplanationCompare extends Component {
 
     handlerFinish = async (event) => {
         try{
+            event.preventDefault();
+            this.setState({process: true});
+
             let body = {
                 user_id: this.props.user.user.id,
                 compares: this.state.movies
             }
+
+            this.setState({process: false});
     
             await postCompare(body);
     
-            event.preventDefault();
+            
             this.props.history.push('/final');
         }
         catch{
@@ -188,6 +194,7 @@ export class ExplanationCompare extends Component {
                     }
                     <Button variant="primary" className="float-md-right" onClick={this.handlerFinish}>Finish</Button>
                 </div>
+                { this.state.process ? <Loader></Loader> : null}
             </div>
         )
     }

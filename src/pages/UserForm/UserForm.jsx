@@ -3,12 +3,21 @@ import { Button, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { ADD_USER } from '../../store/actions/actionsConst';
 import { insertUser } from '../../services/UserService';
+import Loader from '../../components/loader/Loader';
 
 export class UserForm extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { id: null, age: 0, gender: 0, education: 0, usedRecSys: 0, terms_accept: false };
+        this.state = { 
+            id: null, 
+            age: 0, 
+            gender: 0, 
+            education: 0, 
+            usedRecSys: 0, 
+            terms_accept: false,
+            process: false
+        };
     }
 
     handleChangeAge = (event) => {
@@ -34,12 +43,15 @@ export class UserForm extends Component {
     handleSubmit = async (event) => {
         try{
             event.preventDefault();
+            this.setState({process: true});
 
             let { data } = await insertUser(this.state);
     
             this.setState({ id: data });
     
             this.props.onSubmitUser(this.state);
+
+            this.setState({process: false});
     
             this.props.history.push('/movies');
         }
@@ -90,6 +102,7 @@ export class UserForm extends Component {
                     <Form.Check type="checkbox" label="I accept the use of the information provided in this survey" value={this.state.terms_accept} onChange={this.handleChangeAccept} />
                 </Form.Group>
                 <Button className="float-lg-right" as="input" type="submit" value="Next" disabled={!this.state.terms_accept} />
+                { this.state.process ? <Loader></Loader> : null}
             </Form>
         )
     }
